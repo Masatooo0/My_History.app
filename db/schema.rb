@@ -24,18 +24,18 @@ ActiveRecord::Schema.define(version: 2021_07_03_113536) do
 
   create_table "periods", force: :cascade do |t|
     t.integer "period", null: false
-    t.integer "chronology_id", null: false
+    t.integer "history_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["chronology_id"], name: "index_periods_on_chronology_id"
+    t.index ["history_id"], name: "index_periods_on_history_id"
   end
 
   create_table "reasons", force: :cascade do |t|
     t.text "reason", null: false
-    t.integer "chronology_id", null: false
+    t.integer "history_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["chronology_id"], name: "index_reasons_on_chronology_id"
+    t.index ["history_id"], name: "index_reasons_on_history_id"
   end
 
   create_table "users", force: :cascade do |t|
