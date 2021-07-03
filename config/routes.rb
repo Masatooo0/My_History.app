@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  
+
   # =====ユーザーdevise=====
   devise_for :users,
   path:"",
