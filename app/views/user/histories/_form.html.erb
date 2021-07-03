@@ -1,0 +1,33 @@
+<%= form_with(model: @history, local: true) do |f| %>
+
+<!--====Periodモデルに保存====-->
+  <%= f.fields_for :period, @history.build_period do |per| %>
+    <div class="field">
+      <%= per.select :period, Period.periods.keys %>
+    </div>
+  
+    <div class="field">
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </div>
+  
+    <div class="field">
+      <%= f.label :event %>
+      <%= f.text_field :event %>
+    </div>
+  
+    <div class="field">
+      <%= f.label :motivation %>
+      <%= f.number_field :motivation %>
+    </div>
+    
+    <%= f.fields_for :reasons do |r| %>
+      <div class="field">
+        <%= r.text_field :reason %>
+      </div>
+       <div class="actions">
+         <%= f.submit '保存' %>
+       </div>
+   <% end %>
+  <% end %>
+<% end %>

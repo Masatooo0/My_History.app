@@ -2,6 +2,9 @@ Rails.application.routes.draw do
 
   root to: 'homes#top'
 
+  scope module: :user do
+    resources :histories
+  end
   # =====ユーザーdevise=====
   devise_for :users,
   path:"",
