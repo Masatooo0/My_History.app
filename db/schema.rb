@@ -10,7 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_03_105422) do
+ActiveRecord::Schema.define(version: 2021_07_03_113536) do
+
+  create_table "histories", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "event", null: false
+    t.integer "motivation", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_histories_on_user_id"
+  end
+
+  create_table "periods", force: :cascade do |t|
+    t.integer "period", null: false
+    t.integer "chronology_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chronology_id"], name: "index_periods_on_chronology_id"
+  end
+
+  create_table "reasons", force: :cascade do |t|
+    t.text "reason", null: false
+    t.integer "chronology_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chronology_id"], name: "index_reasons_on_chronology_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
