@@ -19,9 +19,13 @@ class User::HistoriesController < ApplicationController
   end
 
   def edit
+    @history = History.find(params[:id])
   end
 
   def update
+    @history = History.find(params[:id])
+    @history.update(history_params)
+    redirect_to root_path
   end
   private
   def history_params
