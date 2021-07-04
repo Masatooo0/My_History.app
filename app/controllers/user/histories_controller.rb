@@ -1,6 +1,9 @@
 class User::HistoriesController < ApplicationController
   before_action :authenticate_user!
 
+  def index
+  end
+
   def new
     @history = History.new
     @history.build_period
