@@ -1,0 +1,7 @@
+<% @period.each do |pe| %>
+  <%= pe.period %>
+
+  <% pe.histories.each do |history| %>
+    <%= history.title %>
+  <% end %>
+<% end %>

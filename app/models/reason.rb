@@ -1,3 +1,3 @@
 class Reason < ApplicationRecord
-  belongs_to :content
+  belongs_to :history
 end
