@@ -10,20 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_05_123428) do
+ActiveRecord::Schema.define(version: 2021_07_05_124840) do
 
-  create_table "contents", force: :cascade do |t|
+  create_table "histories", force: :cascade do |t|
+    t.integer "period_id", null: false
     t.string "title", null: false
     t.text "event", null: false
     t.integer "motivation", null: false
-    t.integer "history_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["history_id"], name: "index_contents_on_history_id"
-  end
-
-  create_table "histories", force: :cascade do |t|
-    t.integer "period"
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -31,17 +24,18 @@ ActiveRecord::Schema.define(version: 2021_07_05_123428) do
   end
 
   create_table "periods", force: :cascade do |t|
-    t.string "period"
+    t.string "period", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["id"], name: "index_periods_on_id"
   end
 
   create_table "reasons", force: :cascade do |t|
     t.text "reason", null: false
-    t.integer "content_id", null: false
+    t.integer "history_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["content_id"], name: "index_reasons_on_content_id"
+    t.index ["history_id"], name: "index_reasons_on_history_id"
   end
 
   create_table "users", force: :cascade do |t|

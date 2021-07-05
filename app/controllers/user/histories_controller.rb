@@ -4,12 +4,11 @@ class User::HistoriesController < ApplicationController
 
 
   def index
-    @histories = History.group('period')
+    @period = Period.joins(:histories).includes(:histories)
   end
   def new
     @history = History.new
-    contents = @history.contents.build
-    contents.reasons.build
+    @history.reasons.build
   end
 
   def create
@@ -26,11 +25,9 @@ class User::HistoriesController < ApplicationController
   private
 
   def history_params
-    params.require(:history).permit(:period,
-      contents_attributes: [
-        :title, :event, :motivation, reasons_attributes:[
-          :reason
-        ]
+    params.require(:history).permit(
+      :period_id, :title, :event, :motivation, reasons_attributes:[
+        :reason
       ]
     )
   end
