@@ -2,6 +2,10 @@ class User::HistoriesController < ApplicationController
 
   before_action :authenticate_user!
 
+
+  def index
+    @histories = History.group('period')
+  end
   def new
     @history = History.new
     contents = @history.contents.build
@@ -20,7 +24,7 @@ class User::HistoriesController < ApplicationController
 
 
   private
-  
+
   def history_params
     params.require(:history).permit(:period,
       contents_attributes: [
