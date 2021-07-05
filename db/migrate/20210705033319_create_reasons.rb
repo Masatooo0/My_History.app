@@ -3,7 +3,7 @@ class CreateReasons < ActiveRecord::Migration[5.2]
     create_table :reasons do |t|
       t.text :reason, null: false
 
-      t.references :history, null: false, foreign_key: true
+      t.references :content, null: false, foreign_key: true
       t.timestamps
     end
   end

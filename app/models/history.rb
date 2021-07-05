@@ -1,10 +1,17 @@
 class History < ApplicationRecord
-  validates :title, presence: true
-  validates :event, presence: true
-  validates :motivation, presence: true
+  belongs_to :user
+  has_many :contents
 
-  has_many :reasons, dependent: :destroy
-  has_one :period, dependent: :destroy
-  accepts_nested_attributes_for :reasons, allow_destroy: true
-  accepts_nested_attributes_for :period, allow_destroy: true
+  enum period:{
+    "幼少期": 0,
+    "小学生時代": 1,
+    "中学生時代": 2,
+    "高校生時代": 3,
+    "大学生時代": 4,
+    "20代": 5,
+    "30代": 6,
+    "40代": 7,
+    "50代": 8
+  }
+  accepts_nested_attributes_for :contents, allow_destroy: true
 end
