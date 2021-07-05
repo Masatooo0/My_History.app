@@ -1,33 +1,33 @@
-<%= form_with(model: @history, local: true) do |f| %>
+<%= form_with(model: history, local: true) do |f| %>
+  <div class="field">
+    <%= f.select :period, History.periods.keys %>
+  </div>
 
-<!--====Periodモデルに保存====-->
-  <%= f.fields_for :period, @history.build_period do |per| %>
+  <!--=====historyモデルに保存======-->
+  <%= f.fields_for :contents do |h| %>
     <div class="field">
-      <%= per.select :period, Period.periods.keys %>
+      <%= h.label :title %>
+      <%= h.text_field :title %>
     </div>
-  
+
     <div class="field">
-      <%= f.label :title %>
-      <%= f.text_field :title %>
+      <%= h.label :event %>
+      <%= h.text_field :event %>
     </div>
-  
+
     <div class="field">
-      <%= f.label :event %>
-      <%= f.text_field :event %>
+      <%= h.label :motivation %>
+      <%= h.number_field :motivation %>
     </div>
-  
-    <div class="field">
-      <%= f.label :motivation %>
-      <%= f.number_field :motivation %>
-    </div>
-    
-    <%= f.fields_for :reasons do |r| %>
+
+    <!--=====reasonモデルに保存======-->
+    <%= h.fields_for :reasons do |r| %>
       <div class="field">
         <%= r.text_field :reason %>
       </div>
        <div class="actions">
          <%= f.submit '保存' %>
        </div>
-   <% end %>
+    <% end %>
   <% end %>
 <% end %>

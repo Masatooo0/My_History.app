@@ -1,14 +1,11 @@
 class User::HistoriesController < ApplicationController
-  before_action :authenticate_user!
 
-  def index
-  end
+  before_action :authenticate_user!
 
   def new
     @history = History.new
-    @history.build_period
-    @reason = @history.reasons.new
-
+    contents = @history.contents.build
+    contents.reasons.build
   end
 
   def create
@@ -21,21 +18,16 @@ class User::HistoriesController < ApplicationController
     end
   end
 
-  def edit
-    @history = History.find(params[:id])
-  end
 
-  def update
-    @history = History.find(params[:id])
-    @history.update(history_params)
-    redirect_to root_path
-  end
   private
+  
   def history_params
-    params.require(:history).permit(
-      :title, :event, :motivation,
-      period_attributes: [:period, :_destroy, :id],
-      reasons_attributes: [:reason, :_destroy, :id]
-      )
+    params.require(:history).permit(:period,
+      contents_attributes: [
+        :title, :event, :motivation, reasons_attributes:[
+          :reason
+        ]
+      ]
+    )
   end
 end
