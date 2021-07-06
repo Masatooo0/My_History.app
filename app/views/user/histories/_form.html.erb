@@ -19,13 +19,14 @@
   </div>
 
   <!--=====reasonモデルに保存======-->
-  <%= f.fields_for :reasons do |r| %>
-    <div class="field">
-      <%= r.text_field :reason %>
+  <%= f.fields_for :reasons do |reason| %>
+     <%= render "reason_fields", f: reason %>
+     <div class="links">
+      <%= link_to_add_association 'なぜ',f, :reasons, data: { association_insertion_method: 'prepend' } %>
     </div>
-     <div class="actions">
-       <%= f.submit '保存' %>
-     </div>
-
   <% end %>
+    <div class="actions">
+      <%= f.submit '保存' %>
+    </div>
+
 <% end %>
