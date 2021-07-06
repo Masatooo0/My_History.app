@@ -2,10 +2,10 @@ class User::HistoriesController < ApplicationController
 
   before_action :authenticate_user!
 
-
   def index
     @period = Period.joins(:histories).includes(:histories)
   end
+
   def new
     @history = History.new
     @history.reasons.build
@@ -18,6 +18,19 @@ class User::HistoriesController < ApplicationController
       redirect_to root_path
     else
       render "new"
+    end
+  end
+
+  def edit
+    @history = History.find(params[:id])
+  end
+
+  def update
+    @history = History.find(params[:id])
+    if @history.update(history_params)
+      redirect_to root_path
+    else
+      render "edit"
     end
   end
 
