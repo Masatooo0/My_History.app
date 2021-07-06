@@ -15,7 +15,7 @@
 
   <div class="field">
     <%= f.label :motivation %>
-    <%= f.number_field :motivation %>
+    <%= f.select :motivation, options_for_select((1..100), {selected: history.motivation}),include_blank: "1~100で選択"  %>
   </div>
 
   <!--=====reasonモデルに保存======-->
