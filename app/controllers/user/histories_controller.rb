@@ -19,7 +19,7 @@ class User::HistoriesController < ApplicationController
     @history = History.new(history_params)
     @history.user_id = current_user.id
     if @history.save
-      redirect_to root_path
+      redirect_to history_path(@history.id)
     else
       render "new"
     end
