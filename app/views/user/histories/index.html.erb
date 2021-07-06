@@ -2,6 +2,8 @@
   <%= pe.period %>
 
   <% pe.histories.each do |history| %>
-    <%= history.title %>
+    <%= link_to history_path(history.id) do %>
+      <%= history.title %>
+    <% end %>
   <% end %>
 <% end %>
