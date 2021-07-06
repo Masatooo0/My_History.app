@@ -1,0 +1,7 @@
+<h1>詳細画面</h1>
+  <%= @history.period.period %>
+  <%= @history.title %>
+  <%= @history.event %>
+  <% @history.reasons.each do |r| %>
+    <%= r.reason %>
+  <% end %>

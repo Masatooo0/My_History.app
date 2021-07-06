@@ -6,6 +6,10 @@ class User::HistoriesController < ApplicationController
     @period = Period.joins(:histories).includes(:histories)
   end
 
+  def show
+    @history = History.joins(:reasons).includes(:reasons).find(params[:id])
+  end
+
   def new
     @history = History.new
     @history.reasons.build
@@ -34,13 +38,21 @@ class User::HistoriesController < ApplicationController
     end
   end
 
+  def destroy
+    history = History.find(params[:id])
+    if history.destroy
+      redirect_to root_path
+    else
+      redirect_to request.referer
+    end
+  end
 
   private
 
   def history_params
     params.require(:history).permit(
       :period_id, :title, :event, :motivation, reasons_attributes:[
-        :reason
+        :reason, :id, :_destroy
       ]
     )
   end
