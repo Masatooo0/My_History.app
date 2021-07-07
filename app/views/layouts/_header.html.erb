@@ -6,7 +6,7 @@
       <% end %>
       <div>
         <% if user_signed_in? %>
-          <i class="fas fa-sign-out-alt"></i>
+          <%= link_to ' ', destroy_user_session_path, method: :delete, class: 'col fas fa-sign-out-alt fa-lg text-dark' %>
         <% else %>
           <span class="navbar-text">
             アカウントをお持ちの方は<%= link_to "こちら", new_user_session_path %>
