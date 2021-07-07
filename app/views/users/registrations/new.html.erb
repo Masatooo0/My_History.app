@@ -6,15 +6,17 @@
       <div class="col form-group pt-3">
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <%= render "users/shared/error_messages", resource: resource %>
-          <%= f.text_field :last_name, placeholder: '姓', autofocus: true, class: 'col-10 col-md-7 mt-4 mx-auto form-control shadow-sm rounded-pill bg-white', required: :require%>
-          <%= f.text_field :first_name, placeholder: '名', autofocus: true, class: 'col-10 col-md-7 mt-4 mx-auto form-control shadow-sm rounded-pill bg-white', required: :require%>
-    　　　　<%= f.email_field :email, placeholder: 'メールアドレス',  autofocus: true, class: 'col-10 col-md-7 mt-4 mx-auto form-control shadow-sm rounded-pill bg-white', required: :require %>
+          <div class="form-inline justify-content-center">
+            <%= f.text_field :last_name, placeholder: '姓', autofocus: true, class: 'col-10 col-md-4 mt-4 form-control shadow-sm rounded-pill bg-white', required: :require%>
+            <%= f.text_field :first_name, placeholder: '名', autofocus: true, class: 'col-10 col-md-4 mt-4 form-control shadow-sm rounded-pill bg-white', required: :require%>
+          </div>
+    　　　　<%= f.email_field :email, placeholder: 'メールアドレス',  autofocus: true, class: 'col-10 col-md-8 mt- mx-auto form-control shadow-sm rounded-pill bg-white', required: :require %>
           <div class="form-group text-center pt-4">
             <%= f.date_select :birth_day, { use_month_numbers: true,start_year: 1971, end_year: (Time.now.year), default: Date.new(1998, 1, 1)},
               {class: 'select-form form-control d-inline-block w-auto shadow-sm rounded-pill bg-white'} %>
           </div>
-          <%= f.password_field :password, placeholder: 'パスワード(6文字以上)', class: 'col-10 col-md-7 mt-4 mx-auto form-control shadow-sm rounded-pill bg-white', required: :required  %>
-          <%= f.password_field :password_confirmation,placeholder: 'パスワード確認', class: 'col-10 col-md-7 mt-4 mx-auto form-control shadow-sm rounded-pill bg-white', required: :required %>
+          <%= f.password_field :password, placeholder: 'パスワード(6文字以上)', class: 'col-10 col-md-8 mt-4 mx-auto form-control shadow-sm rounded-pill bg-white', required: :required  %>
+          <%= f.password_field :password_confirmation,placeholder: 'パスワード確認', class: 'col-10 col-md-8 mt-4 mx-auto form-control shadow-sm rounded-pill bg-white', required: :required %>
           <div class="col text-center">
             <%= f.submit "新規登録", class: 'btn btn-outline-info shadow-sm rounded-pill mt-3' %>
           </div>
