@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   scope module: :user do
     resources :histories
+    resources :resumes, except:[:show]
   end
   # =====ユーザーdevise=====
   devise_for :users,
