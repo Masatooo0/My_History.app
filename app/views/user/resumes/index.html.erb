@@ -1,0 +1,11 @@
+<% @resumes.each do |resume| %>
+<% if resume.status == true %>
+  <h5>学歴</h5>
+  <%= resume.period %>
+  <%= resume.content %>
+<% else %>
+  <h5>職歴</h5>
+  <%= resume.period %>
+  <%= resume.content %>
+<% end %>
+<% end %>
