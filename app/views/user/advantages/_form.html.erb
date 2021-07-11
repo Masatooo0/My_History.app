@@ -1,0 +1,11 @@
+<%= form_with(model: advantage, local: true) do |f| %>
+  <div class="field">
+    <%= f.select :history_id, History.all.map{|history| [history.title, history.id]},include_blank: "--選択して下さい--"  %>
+  </div>
+
+  <div class="field">
+    <%= f.text_area :advantage %>
+  </div>
+
+  <%= f.submit '保存' %>
+<% end %>

@@ -1,0 +1,6 @@
+<% @advantages.each do |advantage| %>
+  <%= advantage.advantage %>
+  <%= link_to history_path(advantage.history) do %>
+   <%= advantage.history.title %>
+  <% end %>
+<% end %>

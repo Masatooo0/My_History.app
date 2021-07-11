@@ -1,5 +1,5 @@
 class Advantage < ApplicationRecord
-  has_many :histories
+  belongs_to :history
   validates :history_id, presence: true
   validates :advantage, presence: true
 end
