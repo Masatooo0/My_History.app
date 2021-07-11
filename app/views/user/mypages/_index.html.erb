@@ -1,4 +1,4 @@
-<% @resumes.each do |resume| %>
+<% resumes.each do |resume| %>
   <% if resume.status == true %>
     <h5>学歴</h5>
     <%= resume.period&.strftime("%Y年%m月") %>
