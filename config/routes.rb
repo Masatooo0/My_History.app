@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   scope module: :user do
     resources :histories
+    resources :resumes, except:[:show, :index]
+    get '/mypage', to: 'mypages#mypage', as: 'mypage'
   end
   # =====ユーザーdevise=====
   devise_for :users,

@@ -1,0 +1,15 @@
+<% resumes.each do |resume| %>
+  <% if resume.status == true %>
+    <h5>学歴</h5>
+    <%= resume.period&.strftime("%Y年%m月") %>
+    <%= resume.content %>
+    <%= link_to "編集", edit_resume_path(resume.id) %>
+    <%= link_to "削除", resume_path(resume.id), method: :delete %>
+  <% else %>
+    <h5>職歴</h5>
+    <%= resume.period %>
+    <%= resume.content %>
+    <%= link_to "編集", edit_resume_path(resume.id) %>
+    <%= link_to "削除", resume_path(resume.id), method: :delete %>
+  <% end %>
+<% end %>

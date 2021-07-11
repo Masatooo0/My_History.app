@@ -1,12 +1,8 @@
-
-
-<% @period.each do |pe| %>
-  <%= pe.period %>
-  <ul>
+ <% @period.each do |pe| %>
+    <%= pe.period %>
     <% pe.histories.each do |history| %>
       <%= link_to history_path(history.id) do %>
-        <li><%= history.title %></li>
+       <%= history.title %>
       <% end %>
     <% end %>
-  </ul>
-<% end %>
+  <% end %>

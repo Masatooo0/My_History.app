@@ -31,6 +31,7 @@ class User::HistoriesController < ApplicationController
 
   def update
     @history = History.find(params[:id])
+    @history.user_id = current_user.id
     if @history.update(history_params)
       redirect_to root_path
     else
