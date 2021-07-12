@@ -13,10 +13,13 @@
 ActiveRecord::Schema.define(version: 2021_07_11_022217) do
 
   create_table "advantages", force: :cascade do |t|
-    t.integer "history_id"
+    t.integer "history_id", null: false
     t.string "advantage"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id", null: false
+    t.index ["history_id"], name: "index_advantages_on_history_id"
+    t.index ["user_id"], name: "index_advantages_on_user_id"
   end
 
   create_table "histories", force: :cascade do |t|
@@ -46,9 +49,9 @@ ActiveRecord::Schema.define(version: 2021_07_11_022217) do
   end
 
   create_table "resumes", force: :cascade do |t|
-    t.date "period"
-    t.string "content"
-    t.boolean "status"
+    t.date "period", null: false
+    t.string "content", null: false
+    t.boolean "status", null: false
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -64,6 +67,8 @@ ActiveRecord::Schema.define(version: 2021_07_11_022217) do
     t.string "first_name", null: false
     t.string "last_name", null: false
     t.date "birth_day", null: false
+    t.string "profile_image_id"
+    t.string "axis"
     t.boolean "is_valid", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
