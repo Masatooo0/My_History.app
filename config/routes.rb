@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
 
+  namespace :user do
+    get 'users/show'
+    get 'users/edit'
+  end
   root to: 'homes#top'
 
   scope module: :user do
     resources :histories
     resources :resumes, except:[:show, :index]
     resources :advantages, except:[:show, :index]
+    resources :users, only: [:show, :edit]
     get '/mypage', to: 'mypages#mypage', as: 'mypage'
   end
   # =====ユーザーdevise=====

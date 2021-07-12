@@ -11,8 +11,9 @@ class User::AdvantagesController < ApplicationController
 
   def create
     @advantage = Advantage.new(advantage_params)
+    @advantage.user_id = current_user.id
     if @advantage.save
-      redirect_to advantages_path
+      redirect_to mypage_path
     else
       render 'new'
     end
@@ -29,6 +30,6 @@ class User::AdvantagesController < ApplicationController
 
   private
   def advantage_params
-    params.require(:advantage).permit(:history_id, :advantage)
+    params.require(:advantage).permit(:history_id, :advantage, :user_id)
   end
 end
