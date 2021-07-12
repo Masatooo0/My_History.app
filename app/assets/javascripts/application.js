@@ -10,12 +10,33 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
+//= require jquery3
+//= require cocoon
+//
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
 //= require_tree .
-//= require cocoon
 
+/* global $ */
 
+// マイページタブメニュー
+$(document).on('turbolinks:load', function() {
+  const menuItems = document.querySelectorAll('.menu li a');
+  const contents = document.querySelectorAll('.content');
+  menuItems.forEach(clickedItem => {
+    clickedItem.addEventListener('click', e => {
+      e.preventDefault();
 
+      menuItems.forEach(item => {
+        item.classList.remove('active');
+      });
+      clickedItem.classList.add('active');
+
+      contents.forEach(content => {
+        content.classList.remove('active');
+      });
+      document.getElementById(clickedItem.dataset.id).classList.add('active');
+    });
+  });
+});

@@ -1,10 +1,20 @@
-  <div class="tab-content py-5" id="nav-tabContent">
-    <div class="tab-pane fade show active" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-      <ul class="row pl-0">
-        <% name_tag = 'text-white px-2 py-1 mr-3 rounded-pill shadow' %>
-        <div class="col-6">
-        <%= render 'index', resumes: @resumes %>
-        </div>
-      </ul>
-    </div>
-  </div>
+<div class="container">
+  <ul class="menu">
+    <li><a href="#" class="active" data-id="resume">学歴/職歴</a></li>
+    <li><a href="#" data-id="advantage">強み</a></li>
+    <li><a href="#" data-id="example">その他</a></li>
+  </ul>
+
+  <section class="content active" id="resume">
+     <%= render 'resume', resumes: @resumes %>
+  </section>
+
+  <section class="content" id="advantage">
+    <%= render 'advantage', advantages: @advantages %>
+  </section>
+
+  <section class="content" id="example" >
+    その他その他その他その他その他その他その他その他その他その他その他その他
+  </section>
+
+</div>
