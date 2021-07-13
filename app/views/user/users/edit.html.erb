@@ -1,2 +1,31 @@
-<h1>User::Users#edit</h1>
-<p>Find me in app/views/user/users/edit.html.erb</p>
+<div class="container">
+  <div class="row py-5 d-flex flex-column">
+    <div class="col-11 col-md-8 col-lg-6 mx-auto mb-3 p-3 p-md-4 border border rounded-lg shadow bg-white">
+      <div class="col text-center text-info"><h3>登録情報編集</h3></div>
+      <div class="col form-group pt-3">
+        <%= form_with model:@user, local:true do |f| %>
+          <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"%>
+            <label for="inputImage">ProfileImage</label>
+          <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
+          <div class="form-inline justify-content-center">
+            <%= f.text_field :last_name, placeholder: '姓', autofocus: true, class: 'col-10 col-md-4 mt-4 form-control shadow-sm rounded-pill bg-white', required: :require%>
+            <%= f.text_field :first_name, placeholder: '名', autofocus: true, class: 'col-10 col-md-4 mt-4 form-control shadow-sm rounded-pill bg-white', required: :require%>
+          </div>
+    　　　　<%= f.email_field :email, placeholder: 'メールアドレス',  autofocus: true, class: 'col-10 col-md-8 mt- mx-auto form-control shadow-sm rounded-pill bg-white', required: :require %>
+          <div class="form-group text-center pt-4">
+            <%= f.date_select :birth_day, { use_month_numbers: true,start_year: 1971, end_year: (Time.now.year), default: Date.new(1998, 1, 1)},
+              {class: 'select-form form-control d-inline-block w-auto shadow-sm rounded-pill bg-white'} %>
+          </div>
+          <div class="form-group text-center pt-4">
+            <%= f.date_select :birth_day, { use_month_numbers: true,start_year: 1971, end_year: (Time.now.year), default: Date.new(1998, 1, 1)},
+              {class: 'select-form form-control d-inline-block w-auto shadow-sm rounded-pill bg-white'} %>
+          </div>
+
+          <div class="col text-center">
+            <%= f.submit "新規登録", class: 'btn btn-outline-info shadow-sm rounded-pill mt-3' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
