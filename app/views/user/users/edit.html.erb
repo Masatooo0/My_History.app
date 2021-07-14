@@ -4,8 +4,7 @@
       <div class="col text-center text-info"><h3>登録情報編集</h3></div>
       <div class="col form-group pt-3">
         <%= form_with model:@user, local:true do |f| %>
-          <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"%>
-            <label for="inputImage">ProfileImage</label>
+          <%= attachment_image_tag @user, :profile_image, size: "160x160", fallback: "no_image.png"%>
           <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
           <div class="form-inline justify-content-center">
             <%= f.text_field :last_name, placeholder: '姓', autofocus: true, class: 'col-10 col-md-4 mt-4 form-control shadow-sm rounded-pill bg-white', required: :require%>
@@ -16,13 +15,8 @@
             <%= f.date_select :birth_day, { use_month_numbers: true,start_year: 1971, end_year: (Time.now.year), default: Date.new(1998, 1, 1)},
               {class: 'select-form form-control d-inline-block w-auto shadow-sm rounded-pill bg-white'} %>
           </div>
-          <div class="form-group text-center pt-4">
-            <%= f.date_select :birth_day, { use_month_numbers: true,start_year: 1971, end_year: (Time.now.year), default: Date.new(1998, 1, 1)},
-              {class: 'select-form form-control d-inline-block w-auto shadow-sm rounded-pill bg-white'} %>
-          </div>
-
           <div class="col text-center">
-            <%= f.submit "新規登録", class: 'btn btn-outline-info shadow-sm rounded-pill mt-3' %>
+            <%= f.submit "保存", class: 'btn btn-outline-info shadow-sm rounded-pill mt-3' %>
           </div>
         <% end %>
       </div>
