@@ -1,0 +1,10 @@
+<h1>詳細画面</h1>
+  <%= @history.period.period %>
+  <%= @history.title %>
+  <%= @history.event %>
+  <% @history.reasons.each do |r| %>
+    <%= r.reason %>
+  <% end %>
+
+  <%= link_to "編集", edit_history_path(@history.id) %>
+  <%= link_to "削除", history_path(@history.id), method: :delete %>

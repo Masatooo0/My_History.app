@@ -1,0 +1,33 @@
+<div class="container" style="max-width: 900px;">
+  <div class="row py-5">
+    <div class="col-6 text-center">
+      <%= attachment_image_tag current_user, :profile_image, size: "160x160", format: 'jpeg', fallback: "no_image.png", class: 'customer-image shadow rounded' %>
+      <h5 class="d-inline-block">
+        <%= current_user.last_name %>
+        <%= current_user.first_name %>
+      </h5>
+      <%= link_to ' ',  edit_user_path(current_user), class: 'ml-1 fas fa-cog text-dark' %>
+    </div>
+  </div>
+</div>
+<!--====タブメニュー======-->
+<div class="container">
+  <ul class="menu">
+    <li><a href="#" class="active" data-id="resume">学歴/職歴</a></li>
+    <li><a href="#" data-id="advantage">強み</a></li>
+    <li><a href="#" data-id="example">その他</a></li>
+  </ul>
+
+  <section class="content active" id="resume">
+     <%= render 'resume', resumes: @resumes %>
+  </section>
+
+  <section class="content" id="advantage">
+    <%= render 'advantage', advantages: @advantages %>
+  </section>
+
+  <section class="content" id="example" >
+    その他その他その他その他その他その他その他その他その他その他その他その他
+  </section>
+
+</div>

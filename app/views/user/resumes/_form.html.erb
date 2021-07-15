@@ -1,0 +1,12 @@
+<%= form_with(model: @resume, local: true) do |f| %>
+  <div class="field">
+    <%= f.select :status ,[['学歴',true],['職歴',false]] %>
+  </div>
+  <div class="field">
+    <%= f.date_select :period, use_month_numbers: true,start_year: 1950, end_year: (Time.now.year), discard_day:true, default: Date.new(1998, 1, 1) %>
+  </div>
+  <div class="field">
+    <%= f.text_area :content %>
+  </div>
+  <%= f.submit '保存' %>
+<% end %>

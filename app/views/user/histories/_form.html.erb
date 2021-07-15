@@ -1,0 +1,32 @@
+<%= form_with(model: history, local: true) do |f| %>
+  <div class="field">
+    <%= f.select :period_id, Period.all.map{|period| [period.period, period.id]},include_blank: "--選択して下さい--"  %>
+  </div>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :event %>
+    <%= f.text_field :event %>
+  </div>
+
+  <div class="field">
+    <%= f.label :motivation %>
+    <%= f.select :motivation, options_for_select((1..100), {selected: history.motivation}),include_blank: "1~100で選択"  %>
+  </div>
+
+  <!--=====reasonモデルに保存======-->
+  <%= f.fields_for :reasons do |reason| %>
+     <%= render "reason_fields", f: reason %>
+     <div class="links">
+      <%= link_to_add_association 'なぜ',f, :reasons, data: { association_insertion_method: 'prepend' } %>
+    </div>
+  <% end %>
+    <div class="actions">
+      <%= f.submit '保存' %>
+    </div>
+
+<% end %>
