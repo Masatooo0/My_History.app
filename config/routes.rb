@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :resumes, except:[:show, :index]
     resources :advantages, except:[:show, :index]
     resources :users, only: [:show, :edit]
+    resources :charts, only: [:index]
     get '/mypage', to: 'mypages#mypage', as: 'mypage'
   end
   # =====ユーザーdevise=====
