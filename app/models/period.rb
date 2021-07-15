@@ -1,3 +1,4 @@
 class Period < ApplicationRecord
-  has_many :histories
+  has_many :histories, dependent: :destroy
+
 end

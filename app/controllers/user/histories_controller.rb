@@ -41,6 +41,7 @@ class User::HistoriesController < ApplicationController
 
   def destroy
     history = History.find(params[:id])
+    logger.debug history.errors.inspect
     if history.destroy
       redirect_to root_path
     else
