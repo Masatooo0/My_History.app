@@ -41,6 +41,7 @@ class User::HistoriesController < ApplicationController
 
   def destroy
     history = History.find(params[:id])
+    logger.debug history.errors.inspect
     if history.destroy
       redirect_to root_path
     else
@@ -52,7 +53,7 @@ class User::HistoriesController < ApplicationController
 
   def history_params
     params.require(:history).permit(
-      :period_id, :title, :event, :motivation, reasons_attributes:[
+      :period_id, :title, :event, :motivation, :user_id, reasons_attributes:[
         :reason, :id, :_destroy
       ]
     )
