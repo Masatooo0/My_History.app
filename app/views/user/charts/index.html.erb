@@ -1,18 +1,21 @@
-
-<canvas id="myChart"></canvas>
+<div class="wrap-chart">
+  <div class="motivation-chart">
+    <canvas id="myChart"></canvas>
+  </div>
+</div>
 <script>
 var ctx = document.getElementById("myChart");
 var myChart = new Chart(ctx, {
   type: 'line',
   data: {
-    labels: gon.data2,
+    labels: gon.period,
     datasets:
     [
         {
         label: 'モチベーション度',
         data: gon.motivation,
-        backgroundColor: 'rgba(122,255,109,0.2)',
-        borderColor: 'rgba(122,255,129,0.2)',
+        backgroundColor: 'rgba(245,203,92,0.8)',
+        borderColor: 'rgba(245,203,92,0.8)',
 
         }
     ]

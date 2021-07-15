@@ -1,8 +1,11 @@
 class User::ChartsController < ApplicationController
   def index
-    @history = History.where(user_id: current_user.id).includes(:user)
-    gon.motivation = @history.pluck(:motivation).map(&:to_i)
+    #グラフX軸データ
     @period = Period.joins(:histories).includes(:histories)
-    gon.data2 = @period.order(period: :DESC).pluck(:period)
+    gon.period = @period.order(:id).pluck(:period)
+
+     #グラフY軸データ
+    @history = History.where(user_id: current_user.id).includes(:user)
+    gon.motivation = @history.order(:period_id).pluck(:motivation).map(&:to_i)
   end
 end
