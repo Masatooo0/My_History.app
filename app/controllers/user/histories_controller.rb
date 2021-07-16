@@ -3,7 +3,7 @@ class User::HistoriesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @period = Period.joins(:histories).includes(:histories)
+    @period = Period.joins(:histories).includes(:histories).order(:id)
   end
 
   def show
@@ -41,7 +41,6 @@ class User::HistoriesController < ApplicationController
 
   def destroy
     history = History.find(params[:id])
-    logger.debug history.errors.inspect
     if history.destroy
       redirect_to root_path
     else
