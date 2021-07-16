@@ -1,3 +1,3 @@
 class Mission < ApplicationRecord
-  belongs_to
+  belongs_to :user
 end
