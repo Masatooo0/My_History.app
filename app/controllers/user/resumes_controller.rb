@@ -1,12 +1,10 @@
 class User::ResumesController < ApplicationController
   before_action :authenticate_user!
 
-  def index
-    @resumes = Resume.all
-  end
   def new
     @resume = Resume.new
   end
+  
   def create
     @resume = Resume.new(resume_params)
     @resume.user_id = current_user.id
@@ -16,9 +14,11 @@ class User::ResumesController < ApplicationController
       render 'new'
     end
   end
+  
   def edit
     @resume = Resume.find(params[:id])
   end
+  
   def update
     @resume = Resume.find(params[:id])
     @resume.user_id = current_user.id
@@ -28,6 +28,7 @@ class User::ResumesController < ApplicationController
       render "edit"
     end
   end
+  
   def destroy
     resume = Resume.find(params[:id])
     if resume.destroy
