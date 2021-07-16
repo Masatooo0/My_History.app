@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_11_022217) do
+ActiveRecord::Schema.define(version: 2021_07_16_042503) do
 
   create_table "advantages", force: :cascade do |t|
     t.string "advantage"
@@ -32,6 +32,15 @@ ActiveRecord::Schema.define(version: 2021_07_11_022217) do
     t.datetime "updated_at", null: false
     t.index ["period_id"], name: "index_histories_on_period_id"
     t.index ["user_id"], name: "index_histories_on_user_id"
+  end
+
+  create_table "missions", force: :cascade do |t|
+    t.text "content"
+    t.date "deadline"
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_missions_on_user_id"
   end
 
   create_table "periods", force: :cascade do |t|
