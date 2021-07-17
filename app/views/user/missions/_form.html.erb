@@ -1,0 +1,8 @@
+<%= form_with(model: mission, local: true) do |f| %>
+  <%= f.text_area :content %>
+  <%= f.date_field :deadline %>
+  <% if current_page?(edit_mission_path(mission.id)) %>
+    <%= f.select :status, [['未完了',0],['完了',1]] %>
+  <% end %>
+  <%= f.submit 'カウントダウン開始' %>
+<% end %>

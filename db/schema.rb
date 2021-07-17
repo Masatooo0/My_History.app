@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 2021_07_16_042503) do
   create_table "missions", force: :cascade do |t|
     t.text "content", null: false
     t.datetime "deadline", null: false
+    t.boolean "status", default: false, null: false
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
