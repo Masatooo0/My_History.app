@@ -18,7 +18,21 @@ class User::MissionsController < ApplicationController
     @mission.save
     redirect_to root_path
   end
-
+  
+  def edit
+    @mission = Mission.find(params[:id])
+  end
+  
+  def update
+    @mission = Mission.find(params[:id])
+    @mission.user_id = current_user.id
+    if @mission.update(mission_params)
+      redirect_to missions_path
+    else
+      render "edit"
+    end
+  end
+  
   private
 
   def mission_params
