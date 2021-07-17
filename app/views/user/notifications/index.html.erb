@@ -1,0 +1,8 @@
+<% if @notifications.present? %>
+  <% @notifications.each do |n| %>
+    <%= n.action %>
+   <p><%= n.mission.content %>の期間が終了しました</p>
+  <% end %>
+<% else %>
+  <p>お知らせはありません</p>
+<% end %>
