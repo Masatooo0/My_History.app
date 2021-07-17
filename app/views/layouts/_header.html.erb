@@ -6,6 +6,10 @@
       <% end %>
       <div>
         <% if user_signed_in? %>
+         <% if unchecked_notifications.any? %>
+           <p class="text-danger">★</p>
+           <%= link_to "通知",notifications_path, class: 'nav-link' %>
+         <% end %>
           <%= link_to ' ', destroy_user_session_path, method: :delete, class: 'col fas fa-sign-out-alt fa-lg text-dark' %>
         <% else %>
           <span class="navbar-text">
