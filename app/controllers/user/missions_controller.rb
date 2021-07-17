@@ -18,11 +18,11 @@ class User::MissionsController < ApplicationController
     @mission.save
     redirect_to root_path
   end
-  
+
   def edit
     @mission = Mission.find(params[:id])
   end
-  
+
   def update
     @mission = Mission.find(params[:id])
     @mission.user_id = current_user.id
@@ -32,10 +32,10 @@ class User::MissionsController < ApplicationController
       render "edit"
     end
   end
-  
+
   private
 
   def mission_params
-    params.require(:mission).permit(:content, :deadline, :user_id)
+    params.require(:mission).permit(:content, :deadline, :status, :user_id)
   end
 end

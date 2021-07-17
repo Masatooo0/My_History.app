@@ -8,7 +8,11 @@
     <input type="hidden" id="userMin"  value = "<%= @mission.deadline.min %>" >
     <input type="hidden" id="userSec"  value = "<%= @mission.deadline.sec %>" >
   </p>
+  <% if @mission.status == false %>
   <p id="RealtimeCountdownArea" ></p>
+  <% else %>
+  <p>完了済み</p>
+  <% end %>
 
   <% if @mission.user.id = current_user %>
     <%= link_to "編集", edit_mission_path(@mission) %>
