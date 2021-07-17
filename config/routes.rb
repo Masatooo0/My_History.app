@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'notifications/index'
   root to: 'homes#top'
 
   scope module: :user do
