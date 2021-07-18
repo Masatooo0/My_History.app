@@ -1,11 +1,17 @@
 <header>
-  <nav class="navbar navbar-light bg-white border-bottom">
-    <div class="container bg-white">
-      <%= link_to "/" do %>
-        <%= image_tag "logo.png", :size => '150x60' %>
-      <% end %>
+  <nav class="navbar navbar-light bg-white border-bottom py-0">
+    <div class="container bg-white my-0" style="height:100px";>
+      <div class="d-flex align-items-center">
+        <%= link_to "/" do %>
+          <%= image_tag "logo.png", :size => '150x60' %>
+        <% end %>
+      </div>
       <div>
         <% if user_signed_in? %>
+         <% if unchecked_notifications.any? %>
+           <p class="text-danger">★</p>
+           <%= link_to "通知",notifications_path, class: 'nav-link' %>
+         <% end %>
           <%= link_to ' ', destroy_user_session_path, method: :delete, class: 'col fas fa-sign-out-alt fa-lg text-dark' %>
         <% else %>
           <span class="navbar-text">

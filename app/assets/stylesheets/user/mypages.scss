@@ -6,12 +6,22 @@
   margin: 30px auto;
   width: 500px;
 }
+// プロフィール部分
+.profile-list{
+ list-style: none;
+}
 
+.profile-list li {
+  margin-bottom: 10px;
+}
+
+// タブメニュー
 .menu {
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
+  border-bottom: 1px solid #dee2e6;
 }
 
 .menu li a {
@@ -25,8 +35,11 @@
 }
 
 .menu li a.active {
-  background: #333;
-  color: #fff;
+  background-color: #fff;
+  border-top: solid 1px #dee2e6;
+  border-right: solid 1px #dee2e6;
+  border-left: solid 1px #dee2e6;
+  border-bottom: solid 1px #fff;
 }
 
 .menu li a:not(.active):hover {
@@ -35,13 +48,38 @@
 }
 
 .content.active {
-  background: #333;
-  color: #fff;
   min-height: 150px;
-  padding: 12px;
   display: block;
 }
 
 .content {
   display: none;
+}
+
+// 強みページ
+.advantage-list{
+  list-style: none;
+  width: 80%;
+  margin: 50px auto;
+}
+.advantage-list li {
+  border-bottom:2px dashed;
+  border-color:#cdcdcd; /* 線の色 */
+  position: relative;
+  margin:0.5em 0 !important;
+  max-width:500px; /* 横幅 */
+  padding: 0 0 0.5em 1.4em;
+}
+.advantage-list li:last-child{
+  border:none;
+}
+.advantage-list li:before {
+  background-color:  #f5cb5c; /* 点の色 */
+  position: absolute;
+  content: '';
+  top:0.5em;
+  left: 0.5em;
+  width: 7px;
+  height: 7px;
+  border-radius: 4px;
 }

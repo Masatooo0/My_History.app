@@ -4,35 +4,35 @@ class User::ResumesController < ApplicationController
   def new
     @resume = Resume.new
   end
-  
+
   def create
     @resume = Resume.new(resume_params)
     @resume.user_id = current_user.id
     if @resume.save
-      redirect_to resumes_path
+      redirect_to mypage_path
     else
       render 'new'
     end
   end
-  
+
   def edit
     @resume = Resume.find(params[:id])
   end
-  
+
   def update
     @resume = Resume.find(params[:id])
     @resume.user_id = current_user.id
     if @resume.update(resume_params)
-      redirect_to resumes_path
+      redirect_to mypage_path
     else
       render "edit"
     end
   end
-  
+
   def destroy
     resume = Resume.find(params[:id])
     if resume.destroy
-      redirect_to resumes_path
+      redirect_to mypage_path
     else
       redirect_to request.referer
     end

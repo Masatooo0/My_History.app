@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'notifications/index'
   root to: 'homes#top'
 
   scope module: :user do
@@ -9,6 +10,7 @@ Rails.application.routes.draw do
     resources :users, only: [:show, :edit]
     resources :charts, only: [:index]
     resources :missions
+    resources :notifications, only: [:index]
     get '/mypage', to: 'mypages#mypage', as: 'mypage'
   end
   # =====ユーザーdevise=====
