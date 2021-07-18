@@ -1,8 +1,22 @@
- <% @period.each do |pe| %>
-    <%= pe.period %>
-    <% pe.histories.each do |history| %>
-      <%= link_to history_path(history.id) do %>
-       <%= history.title %>
-      <% end %>
-    <% end %>
+<div class="container">
+  <% @period.each do |pe| %>
+    <ul class="accordion-area">
+      <li>
+        <section>
+          <h3 class="title"><%= pe.period %></h3>
+          <div class="box">
+            <ul>
+              <% pe.histories.each do |history| %>
+                <li>
+                  <%= link_to history_path(history.id) do %>
+                   <%= history.title %>
+                  <% end %>
+                </li>
+              <% end %>
+             </ul>
+          </div>
+        </section>
+      </li>
+    </ul>
   <% end %>
+</div>
