@@ -23,12 +23,25 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  color: #333333;
+  font-family: "YuGothic","Yu Gothic","Meiryo","ヒラギノ角ゴ","sans-serif";
+  background-color: #F8F9FA;
+
 }
 
 main{
   background-color: #F8F9FA;
+  height: 100%;
 }
 
-.navbar {
- height: 100px;
+.container {
+ margin-top: 0;
+}
+
+.profile-list{
+ list-style: none;
+}
+
+.profile-list li {
+  margin-bottom: 10px;
 }
