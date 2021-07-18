@@ -1,6 +1,12 @@
-<% @advantages.each do |advantage| %>
-  <%= advantage.advantage %>
-  <%= link_to history_path(advantage.history) do %>
-   <%= advantage.history.title %>
+<ul class="advantage-list">
+  <% @advantages.each do |advantage| %>
+    <li>
+      <%= advantage.advantage %>
+      <i class="far fa-hand-point-right"></i>
+      <%= link_to history_path(advantage.history) do %>
+       <%= advantage.history.title %>
+      <% end %>
+      の経験により
+    </li>
   <% end %>
-<% end %>
+</ul>
