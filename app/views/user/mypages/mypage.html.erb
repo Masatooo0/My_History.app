@@ -1,15 +1,26 @@
 <div class="container" style="max-width: 900px;">
   <div class="row py-5">
-    <div class="col-6 text-center">
+    <div class="col-md-6 text-center">
       <%= attachment_image_tag current_user, :profile_image, size: "160x160", format: 'jpeg', fallback: "no_image.png", class: 'customer-image shadow rounded' %>
-      <h5 class="d-inline-block">
-        <%= current_user.last_name %>
-        <%= current_user.first_name %>
-      </h5>
-      <%= link_to ' ',  edit_user_path(current_user), class: 'ml-1 fas fa-cog text-dark' %>
+    </div>
+    <div class="col-md-6 d-flex align-items-center">
+      <ul class="profile-list">
+        <li>
+          <h3 class="d-inline-block">
+            <%= current_user.last_name %>
+            <%= current_user.first_name %>
+          </h3>
+          <%= link_to ' ',  edit_user_path(current_user), class: 'ml-1 fas fa-cog text-dark' %>
+        </li>
+        <li>
+          <h4><%= current_user.birth_day %></h4>
+        </li>
+        <li>
+          <h4><%= current_user.email %></h4>
+        </li>
+      </ul>
     </div>
   </div>
-</div>
 <!--====タブメニュー======-->
 <div class="container">
   <ul class="menu">

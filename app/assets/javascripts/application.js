@@ -118,3 +118,18 @@ function showCountdown() {
 }
 // 1秒ごとに実行
 setInterval('showCountdown()',1000);
+
+// Historyアコーディオンパネル
+
+$(document).on('turbolinks:load', function() {
+　$('.title').on('click', function() {//タイトル要素をクリックしたら
+    var findElm = $(this).next(".box");//直後のアコーディオンを行うエリアを取得し
+    $(findElm).slideToggle();
+    if($(this).hasClass('open')){//タイトル要素にクラス名closeがあれば
+      $(this).removeClass('open');//クラス名を除去し
+    }else{//それ以外は
+      $(this).addClass('open');//クラス名closeを付与
+    }
+  });
+});
+
