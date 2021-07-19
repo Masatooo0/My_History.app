@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :histories
     resources :resumes, except:[:show, :index]
     resources :advantages, except:[:show, :index]
-    resources :users, only: [:show, :edit]
+    resources :users, only: [:show, :edit, :update]
     resources :charts, only: [:index]
     resources :missions
     resources :notifications, only: [:index]
