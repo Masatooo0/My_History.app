@@ -76,3 +76,8 @@ gem "refile-mini_magick"
 
 gem 'cocoon'
 gem 'gon'
+
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
