@@ -1,7 +1,7 @@
 class User::ChartsController < ApplicationController
   def index
     #グラフX軸データ
-    @period = Period.joins(:histories).includes(:histories)
+    @period = Period.joins(:histories).includes(:histories).where('histories.user_id': current_user.id)
     gon.period = @period.order(:id).pluck(:period)
 
      #グラフY軸データ
