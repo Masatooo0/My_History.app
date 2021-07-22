@@ -4,6 +4,7 @@ class ContactsController < ApplicationController
     @contact = Contact.new
   end
 
+# 確認画面表示
   def confirm
     @contact = Contact.new(contact_params)
     if @contact.invalid?
@@ -11,10 +12,12 @@ class ContactsController < ApplicationController
     end
   end
 
+# 戻ったときに入力内容を反映
   def back
     @contact = Contact.new(contact_params)
     render :new
   end
+
 
   def create
     @contact = Contact.new(contact_params)
@@ -25,7 +28,7 @@ class ContactsController < ApplicationController
       render :new
     end
   end
-  
+
   private
 
   def contact_params
@@ -35,4 +38,5 @@ class ContactsController < ApplicationController
                   :message
                  )
   end
+
 end
