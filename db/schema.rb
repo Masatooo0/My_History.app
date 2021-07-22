@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_17_015550) do
+ActiveRecord::Schema.define(version: 2021_07_21_123642) do
 
   create_table "advantages", force: :cascade do |t|
     t.string "advantage"
@@ -20,6 +20,14 @@ ActiveRecord::Schema.define(version: 2021_07_17_015550) do
     t.integer "history_id"
     t.index ["history_id"], name: "index_advantages_on_history_id"
     t.index ["user_id"], name: "index_advantages_on_user_id"
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "email", null: false
+    t.text "message", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "histories", force: :cascade do |t|
