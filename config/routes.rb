@@ -2,6 +2,10 @@ Rails.application.routes.draw do
 
   get 'notifications/index'
   root to: 'homes#top'
+  resources :contacts, only: [:new, :create]
+  post 'contacts/confirm', to: 'contacts#confirm', as: 'confirm'
+  post 'contacts/back', to: 'contacts#back', as: 'back'
+  get 'done', to: 'contacts#done', as: 'done'
 
   scope module: :user do
     resources :histories
