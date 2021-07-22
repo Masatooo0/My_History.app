@@ -27,10 +27,10 @@
   font-family: "YuGothic","Yu Gothic","Meiryo","ヒラギノ角ゴ","sans-serif";
 }
 
-main {
-  background-color: #F8F9FA;
-  padding-bottom: 60px;
+body {
+ min-height: 100%;
 }
+
 
 .container {
  margin-top: 0;
@@ -39,4 +39,4 @@ main {
 
 .navbar {
  height: 100px;
-} 
+}
