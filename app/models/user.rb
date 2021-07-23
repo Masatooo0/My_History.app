@@ -8,5 +8,6 @@ class User < ApplicationRecord
   has_many :advantages, dependent: :destroy
   has_many :missions, dependent: :destroy
   has_many :notifications, dependent: :destroy
+  has_many :dreams, dependent: :destroy
   attachment :profile_image
 end
