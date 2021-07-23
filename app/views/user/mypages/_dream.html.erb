@@ -1,0 +1,21 @@
+<ul class="advantage-list">
+  <% dreams.each do |dream| %>
+    <li>
+      <%= dream.content %>
+    </li>
+    <%= link_to edit_dream_path(dream.id) do %>
+      <i class="far fa-edit"></i>
+    <% end %>
+    <%= link_to dream_path(dream.id), method: :delete do%>
+      <i class="far fa-trash-alt"></i>
+    <% end %>
+  <% end %>
+</ul>
+
+
+
+<div class="text-right pr-5">
+  <%= link_to new_dream_path do %>
+    <i class="fa-3x far fa-plus-square"></i>
+  <% end %>
+</div>
