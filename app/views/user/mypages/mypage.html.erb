@@ -24,21 +24,20 @@
 <!--====タブメニュー======-->
 <div class="container">
   <ul class="menu">
-    <li><a href="#" class="active" data-id="resume">学歴/職歴</a></li>
+    <li><a href="#" class="active" data-id="dream">こう生きたい</a></li>
+    <li><a href="#" data-id="resume">学歴/職歴</a></li>
     <li><a href="#" data-id="advantage">強み</a></li>
-    <li><a href="#" data-id="example">その他</a></li>
   </ul>
 
-  <section class="content active" id="resume">
+  <section class="content active" id="dream" >
+    <%= render 'dream', dreams: @dreams %>
+  </section>
+
+  <section class="content" id="resume">
      <%= render 'resume', resumes: @resumes %>
   </section>
 
   <section class="content" id="advantage">
     <%= render 'advantage', advantages: @advantages %>
   </section>
-
-  <section class="content" id="example" >
-    <%= render 'dream', dreams: @dreams %>
-  </section>
-
 </div>
