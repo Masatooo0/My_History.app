@@ -8,13 +8,21 @@
       </div>
       <div>
         <% if user_signed_in? %>
-         <% if unchecked_notifications.any? %>
-           <p class="text-danger">★</p>
-           <%= link_to notifications_path, class: 'nav-link' do %>
-             <i class="far fa-bell"></i>
-           <% end %>
-         <% end %>
-          <%= link_to ' ', destroy_user_session_path, method: :delete, class: 'col fas fa-sign-out-alt fa-lg text-dark' %>
+          <ul class="nav pull-right nav-pills">
+            <% if unchecked_notifications.any? %>
+              <li>
+                <%= link_to ' ', notifications_path, class: "col far fa-bell fa-lg text-dark" %>
+              </i>
+              <i class="fas.fa-circle.n-circle.fa-stack-1x"></i>
+            <% else %>
+              <li>
+                <%= link_to ' ', notifications_path, class: "col far fa-bell fa-lg text-dark" %>
+              </i>
+            <% end %>
+            <li>
+              <%= link_to ' ', destroy_user_session_path, method: :delete, class: 'col fas fa-sign-out-alt fa-lg text-dark' %>
+            </li>
+          </ul>
         <% else %>
           <span class="navbar-text">
             アカウントをお持ちの方は<%= link_to "こちら", new_user_session_path %>
