@@ -119,6 +119,7 @@ function showCountdown() {
 // 1秒ごとに実行
 setInterval('showCountdown()',1000);
 
+
 // Historyアコーディオンパネル
 
 $(document).on('turbolinks:load', function() {
