@@ -3,9 +3,7 @@ class User::HistoriesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-
     @period = Period.joins(:histories).includes(:histories).where('histories.user_id': current_user.id).order(:id)
-
   end
 
   def show
