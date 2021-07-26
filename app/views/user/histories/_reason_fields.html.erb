@@ -1,8 +1,10 @@
 <div class="nested-fields">
-  <div class="form-group">
-    <%= f.text_area :reason, placeholder: "深堀りしていこう", class: "form-control" %>
-    <div class="text-right">
+ <div class="input-group">
+    <%= f.text_field :reason, placeholder: "深堀りしていこう", class: "form-control" %>
+    <div class="input-group-btn">
+     <div class="d-flex align-items-center">
     <%= link_to_remove_association "削除", f, class: "btn btn-danger btn-remove" %>
+    </div>
     </div>
   </div>
 </div>
