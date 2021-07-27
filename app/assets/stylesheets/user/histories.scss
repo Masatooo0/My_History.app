@@ -27,6 +27,25 @@
     transition: all .5s ease;
 }
 
+// タイトル横矢印表示
+.title:after {
+	content: "";
+	display: inline-block;
+	position: absolute;
+	top: 45%;
+	right: 30px;
+	width: 10px;
+	height: 10px;
+	border-right: 3px solid #333;
+	border-bottom: 3px solid #333;
+	transform: translateY(-50%) rotate(45deg);
+	transition: .3s;
+}
+
+.title.open:after {
+	transform: rotate(225deg);
+}
+
 /*アコーディオンで現れるエリア*/
 .box {
     display: none;/*はじめは非表示*/
