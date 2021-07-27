@@ -2,20 +2,22 @@
   <p>期限 <%= l @mission.deadline, format: :short %>
   <br>
     <input type="hidden" id="userYear" value = "<%= @mission.deadline.year %>"  >
-    <input type="hidden" id="userMonth"value = "<%= @mission.deadline.month %>" >
+    <input type="hidden" id="userMonth" value = "<%= @mission.deadline.month %>" >
     <input type="hidden" id="userDate" value = "<%= @mission.deadline.day %>" >
     <input type="hidden" id="userHour" value = "<%= @mission.deadline.hour %>" >
     <input type="hidden" id="userMin"  value = "<%= @mission.deadline.min %>" >
     <input type="hidden" id="userSec"  value = "<%= @mission.deadline.sec %>" >
   </p>
+
   <% if @mission.status == false %>
-  
-  <p id="RealtimeCountdownArea" ></p>
+    <p id="RealtimeCountdownArea" ></p>
   <% else %>
-  <p>完了済み</p>
+    <p>完了済み</p>
   <% end %>
+
 
   <% if @mission.user.id = current_user %>
     <%= link_to "編集", edit_mission_path(@mission) %>
+    <%= link_to "削除", mission_path(@mission.id), method: :delete %>
   <% end %>
 
