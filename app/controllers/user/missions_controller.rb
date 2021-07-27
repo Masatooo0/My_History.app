@@ -33,6 +33,15 @@ class User::MissionsController < ApplicationController
     end
   end
 
+  def destroy
+    mission = Mission.find(params[:id])
+    if mission.destroy
+      redirect_to missions_path
+    else
+      redirect_to request.referer
+    end
+  end
+
   private
 
   def mission_params
