@@ -52,7 +52,7 @@ class User::HistoriesController < ApplicationController
 
   def history_params
     params.require(:history).permit(
-      :period_id, :title, :event, :motivation, :user_id, reasons_attributes:[
+      :period_id, :title, :event, :motivation, :image, :summarize, :user_id, reasons_attributes:[
         :reason, :id, :_destroy
       ]
     )
