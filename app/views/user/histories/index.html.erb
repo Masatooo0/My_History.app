@@ -1,9 +1,11 @@
 <div class="container">
 
   <h2>自分年表</h2>
-  <%= link_to new_history_path do %>
-    <i class="fa-3x far fa-plus-square"></i>
-  <% end %>
+  <div class="text-right mb-3">
+    <%= link_to new_history_path do %>
+      <i class="fa-3x far fa-plus-square"></i>
+    <% end %>
+  </div>
   <!--投稿が存在した場合-->
   <% if @period.present? %>
     <% @period.each do |pe| %>

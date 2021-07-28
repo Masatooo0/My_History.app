@@ -5,14 +5,20 @@
       <%= attachment_image_tag @history, :image, size: "400x300", format: 'jpeg', fallback: "no_image.png" %>
     </div>
     <div class="col-md-6 my-auto">
-      <h2>タイトル:<%= @history.title %>
-        <%= link_to "編集", edit_history_path(@history.id) %>
-        <%= link_to "削除", history_path(@history.id), method: :delete %>
+      <h2 class="text-left">タイトル:<%= @history.title %>
+        <!--編集ボタン-->
+        <%= link_to edit_history_path(@history.id) do %>
+          <i class="far fa-edit"></i>
+        <% end %>
+        <!--削除ボタン-->
+        <%= link_to history_path(@history.id), method: :delete do %>
+          <i class="far fa-trash-alt"></i>
+        <% end %>
       </h2><br>
-      <h2>出来事:<%= @history.event %></h2>
+      <h2 class="text-left">出来事:<%= @history.event %></h2>
     </div>
   </div>
-  
+
   <div class="row mt-5">
     <% @history.reasons.each do |r| %>
       <div class="col-md-4">
