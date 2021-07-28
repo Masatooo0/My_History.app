@@ -1,5 +1,7 @@
-  <p>目標<%= @mission.content %></p>
-  <p>期限 <%= l @mission.deadline, format: :short %>
+ <div class="container">
+
+  <p>目標:<%= @mission.content %></p>
+  <p>期限:<%= l @mission.deadline, format: :short %>
   <br>
     <input type="hidden" id="userYear" value = "<%= @mission.deadline.year %>"  >
     <input type="hidden" id="userMonth" value = "<%= @mission.deadline.month %>" >
@@ -10,7 +12,7 @@
   </p>
 
   <% if @mission.status == false %>
-    <p id="RealtimeCountdownArea" ></p>
+    <h3 id="RealtimeCountdownArea" ></h3>
   <% else %>
     <p>完了済み</p>
   <% end %>
@@ -21,3 +23,4 @@
     <%= link_to "削除", mission_path(@mission.id), method: :delete %>
   <% end %>
 
+</div>
