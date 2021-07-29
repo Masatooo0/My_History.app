@@ -20,12 +20,26 @@ class User::AdvantagesController < ApplicationController
   end
 
   def edit
+    @advantage = Advantage.find(params[:id])
   end
 
   def update
+    @advantage = Advantage.find(params[:id])
+    @advantage.user_id = current_user.id
+    if @advantage.update(advantage_params)
+      redirect_to mypage_path
+    else
+      render "edit"
+    end
   end
 
   def destroy
+     advantage = Advantage.find(params[:id])
+    if advantage.destroy
+      redirect_to mypage_path
+    else
+      redirect_to request.referer
+    end
   end
 
   private
