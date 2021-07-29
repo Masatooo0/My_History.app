@@ -16,7 +16,11 @@ class User::MissionsController < ApplicationController
     @mission = Mission.new(mission_params)
     @mission.user_id = current_user.id
     @mission.save
-    redirect_to missions_path
+    if @history.save
+      redirect_to mission_path(@mission.id)
+    else
+      render "new"
+    end
   end
 
   def edit

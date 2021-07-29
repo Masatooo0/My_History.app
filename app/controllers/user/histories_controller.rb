@@ -33,7 +33,7 @@ class User::HistoriesController < ApplicationController
     @history = History.find(params[:id])
     @history.user_id = current_user.id
     if @history.update(history_params)
-      redirect_to root_path
+      redirect_to history_path(@history.id)
     else
       render "edit"
     end
@@ -42,7 +42,7 @@ class User::HistoriesController < ApplicationController
   def destroy
     history = History.find(params[:id])
     if history.destroy
-      redirect_to root_path
+      redirect_to histories_path
     else
       redirect_to request.referer
     end
