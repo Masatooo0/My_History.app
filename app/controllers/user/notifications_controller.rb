@@ -1,4 +1,5 @@
 class User::NotificationsController < ApplicationController
+  
   def index
     # indexにアクセスすると既読に変更
     @notifications = current_user.notifications

@@ -1,4 +1,6 @@
 class User::MypagesController < ApplicationController
+  before_action :authenticate_user!
+  
   def mypage
     @dreams = Dream.where(user_id: current_user.id).includes(:user)
     @resumes = Resume.where(user_id: current_user.id).includes(:user)

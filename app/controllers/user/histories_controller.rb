@@ -1,5 +1,4 @@
 class User::HistoriesController < ApplicationController
-
   before_action :authenticate_user!
 
   def index
@@ -21,7 +20,7 @@ class User::HistoriesController < ApplicationController
     if @history.save
       redirect_to history_path(@history.id)
     else
-      render "new"
+      render :new
     end
   end
 
@@ -35,7 +34,7 @@ class User::HistoriesController < ApplicationController
     if @history.update(history_params)
       redirect_to history_path(@history.id)
     else
-      render "edit"
+      render :edit
     end
   end
 
