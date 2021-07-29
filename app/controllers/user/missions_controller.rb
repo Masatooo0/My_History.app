@@ -16,10 +16,10 @@ class User::MissionsController < ApplicationController
     @mission = Mission.new(mission_params)
     @mission.user_id = current_user.id
     @mission.save
-    if @history.save
+    if @mission.save
       redirect_to mission_path(@mission.id)
     else
-      render "new"
+      render :new
     end
   end
 
@@ -33,7 +33,7 @@ class User::MissionsController < ApplicationController
     if @mission.update(mission_params)
       redirect_to missions_path
     else
-      render "edit"
+      render :edit
     end
   end
 
