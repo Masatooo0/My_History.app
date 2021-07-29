@@ -16,7 +16,7 @@ class User::MissionsController < ApplicationController
     @mission = Mission.new(mission_params)
     @mission.user_id = current_user.id
     @mission.save
-    redirect_to root_path
+    redirect_to missions_path
   end
 
   def edit

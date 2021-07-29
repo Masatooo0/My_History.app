@@ -19,8 +19,8 @@
 
 
   <% if @mission.user.id = current_user %>
-    <%= link_to "編集", edit_mission_path(@mission) %>
-    <%= link_to "削除", mission_path(@mission.id), method: :delete %>
+    <%= link_to "編集", edit_mission_path(@mission), class:"btn btn-success" %>
+    <%= link_to "削除", mission_path(@mission.id), method: :delete, class:"btn btn-danger"  %>
   <% end %>
 
 </div>
