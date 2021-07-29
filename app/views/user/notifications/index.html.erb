@@ -1,3 +1,4 @@
+<div class="container">
 <% if @notifications.present? %>
   <% @notifications.each do |n| %>
     <%= n.action %>
@@ -6,3 +7,4 @@
 <% else %>
   <p>お知らせはありません</p>
 <% end %>
+</div>
