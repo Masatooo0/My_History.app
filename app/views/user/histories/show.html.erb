@@ -1,10 +1,43 @@
-<h1>詳細画面</h1>
-  <%= @history.period.period %>
-  <%= @history.title %>
-  <%= @history.event %>
-  <% @history.reasons.each do |r| %>
-    <%= r.reason %>
-  <% end %>
+<div class="container">
+  <h2><%= @history.period.period %>の出来事</h2>
+  <div class="row mt-5">
+    <div class="col-md-6">
+      <%= attachment_image_tag @history, :image, size: "400x300", format: 'jpeg', fallback: "no_image.png" %>
+    </div>
+    <div class="col-md-6 my-auto">
+      <h2 class="text-left">タイトル:<%= @history.title %>
+        <!--編集ボタン-->
+        <%= link_to edit_history_path(@history.id) do %>
+          <i class="far fa-edit"></i>
+        <% end %>
+        <!--削除ボタン-->
+        <%= link_to history_path(@history.id), method: :delete do %>
+          <i class="far fa-trash-alt"></i>
+        <% end %>
+      </h2><br>
+      <h2 class="text-left">出来事:<%= @history.event %></h2>
+    </div>
+  </div>
 
-  <%= link_to "編集", edit_history_path(@history.id) %>
-  <%= link_to "削除", history_path(@history.id), method: :delete %>
+  <div class="row mt-5">
+    <% @history.reasons.each do |r| %>
+      <div class="col-md-4">
+        <div class="reason-box">
+          <span class="reason-box-title">なぜ？</span>
+          <p>
+            <%= simple_format(r.reason) %>
+          </p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="row">
+    <div class="col-md-10 mx-auto mb-5">
+      <div class="summarize-box">
+        <div class="summarize-box-title">まとめ</div>
+        <p><%= simple_format(@history.summarize) %></p>
+      </div>
+     </div>
+  </div>
+</div>

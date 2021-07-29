@@ -16,7 +16,11 @@ class User::MissionsController < ApplicationController
     @mission = Mission.new(mission_params)
     @mission.user_id = current_user.id
     @mission.save
-    redirect_to root_path
+    if @history.save
+      redirect_to mission_path(@mission.id)
+    else
+      render "new"
+    end
   end
 
   def edit
@@ -30,6 +34,15 @@ class User::MissionsController < ApplicationController
       redirect_to missions_path
     else
       render "edit"
+    end
+  end
+
+  def destroy
+    mission = Mission.find(params[:id])
+    if mission.destroy
+      redirect_to missions_path
+    else
+      redirect_to request.referer
     end
   end
 

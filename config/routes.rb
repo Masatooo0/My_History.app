@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     resources :charts, only: [:index]
     resources :missions
     resources :notifications, only: [:index]
+    resources :dreams, except:[:show, :index]
     get '/mypage', to: 'mypages#mypage', as: 'mypage'
   end
   # =====ユーザーdevise=====

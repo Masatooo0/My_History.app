@@ -1,27 +1,35 @@
 <div class="container">
 
   <h2>自分年表</h2>
-  <%= link_to new_history_path do %>
-    <i class="fa-3x far fa-plus-square"></i>
-  <% end %>
-  <% @period.each do |pe| %>
-    <ul class="accordion-area">
-      <li>
-        <section>
-          <h3 class="title"><%= pe.period %></h3>
-          <div class="box">
-            <ul>
-              <% pe.histories.each do |history| %>
-                <li>
-                  <%= link_to history_path(history.id) do %>
-                   <%= history.title %>
-                  <% end %>
-                </li>
-              <% end %>
-             </ul>
-          </div>
-        </section>
-      </li>
-    </ul>
+  <div class="text-right mb-3">
+    <%= link_to new_history_path do %>
+      <i class="fa-3x far fa-plus-square"></i>
+    <% end %>
+  </div>
+  <!--投稿が存在した場合-->
+  <% if @period.present? %>
+    <% @period.each do |pe| %>
+      <ul class="accordion-area">
+        <li>
+          <section>
+            <h3 class="title"><%= pe.period %></h3>
+            <div class="box">
+              <ul>
+                <% pe.histories.each do |history| %>
+                  <li>
+                    <%= link_to history_path(history.id) do %>
+                     <%= history.title %>
+                    <% end %>
+                  </li>
+                <% end %>
+               </ul>
+            </div>
+          </section>
+        </li>
+      </ul>
+    <% end %>
+  <!--投稿が存在しなかった場合-->
+  <% else %>
+    <p>まだ投稿がありません</p>
   <% end %>
 </div>

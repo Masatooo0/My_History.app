@@ -1,8 +1,29 @@
-<%= form_with(model: mission, local: true) do |f| %>
-  <%= f.text_area :content %>
-  <%= f.datetime_select :deadline %>
+<div class="container">
+  <div class="row py-5 d-flex flex-column">
+    <div class="col-11 col-md-8 col-lg-6 mx-auto mb-3 p-3 p-md-5 border border rounded-lg shadow bg-white">
+      <div class="col text-center text-info"><h3>目標設定</h3></div>
 
-    <%= f.select :status, [['未完了',0],['完了',1]] %>
+          <%= form_with(model: mission, local: true) do |f| %>
+          <div class="form-group mt-3">
+            <%= f.text_field :content, placeholder: "目標を設定"%>
+          </div>
+          <div class="form-group">
+            <%= f.date_field :deadline %>までに
+          </div>
 
-  <%= f.submit 'カウントダウン開始' %>
-<% end %>
+          <!--編集ページのみ表示-->
+          <% unless current_page?(new_mission_path) %>
+            <div class="form-group">
+              <%= f.select :status, [['未完了',0],['完了',1]] %>
+            </div>
+          <% end %>
+
+          <div class="col text-center">
+            <%= f.submit "カウントダウン開始", class: "btn btn-outline-info shadow-sm rounded-pill mt-3" %>
+          </div>
+          <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>

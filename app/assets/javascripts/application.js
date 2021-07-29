@@ -95,6 +95,7 @@ function showCountdown() {
    var dMin   = diff2Dates / ( 1000 * 60 );   // 分
    diff2Dates = diff2Dates % ( 1000 * 60 );
    var dSec   = diff2Dates / 1000;   // 秒
+
    var msg2 = Math.floor(dDays) + "日"
             + Math.floor(dHour) + "時間"
             + Math.floor(dMin) + "分"
@@ -113,11 +114,11 @@ function showCountdown() {
 
    // 作成した文字列を表示
    document.getElementById("RealtimeCountdownArea").innerHTML = msg;
-   document.getElementById("deadline.id").value =  targetDate;
 
 }
 // 1秒ごとに実行
 setInterval('showCountdown()',1000);
+
 
 // Historyアコーディオンパネル
 

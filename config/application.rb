@@ -8,6 +8,7 @@ Bundler.require(*Rails.groups)
 
 module MyHistory
   class Application < Rails::Application
+    config.paths.add 'lib', eager_load: true #通知機能batch処理
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
     # Settings in config/environments/* take precedence over those specified here.

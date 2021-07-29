@@ -3,9 +3,7 @@ class User::HistoriesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-
     @period = Period.joins(:histories).includes(:histories).where('histories.user_id': current_user.id).order(:id)
-
   end
 
   def show
@@ -35,7 +33,7 @@ class User::HistoriesController < ApplicationController
     @history = History.find(params[:id])
     @history.user_id = current_user.id
     if @history.update(history_params)
-      redirect_to root_path
+      redirect_to history_path(@history.id)
     else
       render "edit"
     end
@@ -44,7 +42,7 @@ class User::HistoriesController < ApplicationController
   def destroy
     history = History.find(params[:id])
     if history.destroy
-      redirect_to root_path
+      redirect_to histories_path
     else
       redirect_to request.referer
     end
@@ -54,7 +52,7 @@ class User::HistoriesController < ApplicationController
 
   def history_params
     params.require(:history).permit(
-      :period_id, :title, :event, :motivation, :user_id, reasons_attributes:[
+      :period_id, :title, :event, :motivation, :image, :summarize, :user_id, reasons_attributes:[
         :reason, :id, :_destroy
       ]
     )

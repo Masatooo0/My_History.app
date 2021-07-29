@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_21_123642) do
+ActiveRecord::Schema.define(version: 2021_07_27_112029) do
 
   create_table "advantages", force: :cascade do |t|
     t.string "advantage"
@@ -30,6 +30,14 @@ ActiveRecord::Schema.define(version: 2021_07_21_123642) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "dreams", force: :cascade do |t|
+    t.string "content"
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_dreams_on_user_id"
+  end
+
   create_table "histories", force: :cascade do |t|
     t.string "title", null: false
     t.text "event", null: false
@@ -38,6 +46,8 @@ ActiveRecord::Schema.define(version: 2021_07_21_123642) do
     t.integer "period_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "summarize"
+    t.string "image_id"
     t.index ["period_id"], name: "index_histories_on_period_id"
     t.index ["user_id"], name: "index_histories_on_user_id"
   end
