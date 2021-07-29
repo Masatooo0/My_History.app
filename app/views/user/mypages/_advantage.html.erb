@@ -1,16 +1,33 @@
-<% if @advantages.present? %>
-  <ul class="advantage-list">
-    <% @advantages.each do |advantage| %>
-      <li>
-        <%= advantage.advantage %>
-        <i class="far fa-hand-point-right"></i>
-        <%= link_to history_path(advantage.history) do %>
-         <%= advantage.history.title %>
-        <% end %>
-        の経験により
-      </li>
-    <% end %>
-  </ul>
+<% if advantages.present? %>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col" class="text-center">自分の強み</th>
+        <th scope="col" class="text-center">生きた経験</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% advantages.each do |advantage| %>
+        <tr>
+          <td><%= advantage.advantage %></td>
+          <td>
+            <%= link_to history_path(advantage.history) do %>
+             <%= advantage.history.title %>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to edit_advantage_path(advantage.id) do %>
+              <i class="far fa-edit"></i>
+            <% end %>
+            <%= link_to advantage_path(advantage.id), method: :delete do %>
+              <i class="far fa-trash-alt"></i>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
   <div class="text-right pr-5">
     <%= link_to new_advantage_path do %>
       <i class="fa-3x far fa-plus-square"></i>

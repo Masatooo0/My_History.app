@@ -1,9 +1,6 @@
 class User::AdvantagesController < ApplicationController
   before_action :authenticate_user!
 
-  def index
-    @advantages = Advantage.joins(:history).select("advantage, history_id, histories.title")
-  end
 
   def new
     @advantage = Advantage.new
