@@ -1,11 +1,22 @@
-<%= form_with(model: advantage, local: true) do |f| %>
-  <div class="field">
-    <%= f.select :history_id, History.all.map{|history| [history.title, history.id]},include_blank: "--選択して下さい--"  %>
+<div class="container">
+  <div class="row py-5 d-flex flex-column">
+    <div class="col-11 col-md-8 col-lg-6 mx-auto mb-3 p-3 p-md-4 border border rounded-lg shadow bg-white">
+      <div class="col text-center text-info"><h3>強み</h3></div>
+      <div class="col form-group pt-3">
+        <%= form_with(model: advantage, local: true) do |f| %>
+          <div class="form-group">
+            <%= f.label :history, "強みが生きた経験" %><br>
+            <%= f.select :history_id, History.all.map{|history| [history.title, history.id]},include_blank: "--選択して下さい--" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :advantage, "あなたの強み" %>
+            <%= f.text_field :advantage, class:"form-control", placeholder: "◯◯力" %>
+          </div>
+          <div class="col text-center">
+            <%= f.submit '保存', class: 'btn btn-outline-info shadow-sm rounded-pill mt-3' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.text_area :advantage %>
-  </div>
-
-  <%= f.submit '保存' %>
-<% end %>
+</div>
