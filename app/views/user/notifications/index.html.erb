@@ -1,10 +1,22 @@
 <div class="container">
-<% if @notifications.present? %>
-  <% @notifications.each do |n| %>
-    <%= n.action %>
-   <p><%= n.mission.content %>の期間が終了しました</p>
-  <% end %>
-<% else %>
-  <p>お知らせはありません</p>
-<% end %>
+  <div class="col text-center mb-5"><h3>タスク通知</h3></div>
+  <div class="col-md-6 mx-auto">
+    <% if @notifications.present? %>
+      <% @notifications.each do |n| %>
+        <!--期限の１日前-->
+        <% if n.action == "warning" %>
+          <p>
+            <%= link_to n.mission.content, mission_path(n.mission.id) %>の締め切りまであと１日です。
+          </p>
+        <!--期限が過ぎていた場合-->
+        <% else %>
+          <p>
+            <%= link_to n.mission.content, mission_path(n.mission.id) %>が終了しました。
+          </p>
+        <% end %>
+      <% end %>
+    <% else %>
+      <p>お知らせはありません。</p>
+    <% end %>
+  </div>
 </div>

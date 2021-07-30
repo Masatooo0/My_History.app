@@ -1,32 +1,27 @@
-<div class="wrap-chart">
-  <div class="motivation-chart">
-    <canvas id="myChart"></canvas>
+<div class="col text-center my-5"><h3>人生のモチベーション</h3></div>
+  <div class="motivation-chart-container" style="position: relative; height:60vh; width:90vw">
+    <canvas id="MotivationChart"></canvas>
   </div>
 </div>
+
 <script>
-var ctx = document.getElementById("myChart");
-var myChart = new Chart(ctx, {
-  type: 'line',
-  data: {
-    labels: gon.period,
-    datasets:
-    [
+  var ctx = document.getElementById("MotivationChart");
+  var motivationChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: gon.period,
+      datasets:
+      [
         {
         label: 'モチベーション度',
         data: gon.motivation,
         backgroundColor: 'rgba(245,203,92,0.8)',
         borderColor: 'rgba(245,203,92,0.8)',
-
         }
-    ]
-  },
-  options: {
-      scale: {
-          ticks: {
-              suggestedMin: 0,
-              suggestedMax: 100
-          }
-      }
-  }
-});
+      ]
+    },
+    options: {
+      maintainAspectRatio: false,
+    }
+  });
 </script>

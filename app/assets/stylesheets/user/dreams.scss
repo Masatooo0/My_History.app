@@ -1,3 +1,13 @@
 // Place all the styles related to the user::dreams controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.dream-content {
+  border-bottom:dashed  1px  #8ec6ff;
+  padding:0 12%;
+  margin-bottom: 10px;
+}
+
+.dream-title {
+  font-size: 25px;
+}
