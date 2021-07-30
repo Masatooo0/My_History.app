@@ -2,7 +2,11 @@ class User::MissionsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-   @missions = Mission.where(user_id: current_user.id).includes(:user)
+    @missions = Mission.where(user_id: current_user.id).includes(:user)
+    # チャート用データ
+    @completed = @missions.where(status: 0)
+    gon.completed = @completed.count
+    gon.allmissions = @missions.count
   end
 
   def show
