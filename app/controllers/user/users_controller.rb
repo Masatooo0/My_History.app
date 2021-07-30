@@ -12,7 +12,7 @@ class User::UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to mypage_path
     else
-      render :edit
+      render 'edit'
     end
   end
 

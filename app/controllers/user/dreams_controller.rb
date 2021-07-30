@@ -10,7 +10,7 @@ class User::DreamsController < ApplicationController
     if @dream.save
       redirect_to mypage_path
     else
-      render :new
+      render 'new'
     end
   end
 
@@ -24,7 +24,7 @@ class User::DreamsController < ApplicationController
     if @dream.update(dream_params)
       redirect_to mypage_path
     else
-      render :edit
+      render 'edit'
     end
   end
 
