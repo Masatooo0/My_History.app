@@ -1,8 +1,9 @@
-<div class="wrap-chart">
+<div class="col text-center my-5"><h3>人生のモチベーション</h3></div>
   <div class="motivation-chart-container" style="position: relative; height:60vh; width:90vw">
     <canvas id="MotivationChart"></canvas>
   </div>
 </div>
+
 <script>
   var ctx = document.getElementById("MotivationChart");
   var motivationChart = new Chart(ctx, {
@@ -21,12 +22,6 @@
     },
     options: {
       maintainAspectRatio: false,
-      scale: {
-        ticks: {
-          suggestedMin: 0,
-          suggestedMax: 100
-        }
-      }
     }
   });
 </script>
