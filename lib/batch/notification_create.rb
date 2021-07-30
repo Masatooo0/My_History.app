@@ -12,10 +12,10 @@ class Batch::NotificationCreate
       end
 
       #Notificationモデルが無く、今日が締め切りだった場合
-      if mission.notification.nil? && today == mission.deadline.to_date
+      if mission.notification.nil? && today >= mission.deadline.to_date
         Notification.create(mission_id: mission.id, user_id: user.id, checked: false, action: "expired")
       #Notificationモデルが存在しており、今日が締め切りの場合
-      elsif mission.notification.present? && today == mission.deadline.to_date
+      elsif mission.notification.present? && today >= mission.deadline.to_date
         mission.notification.update(action: "expired")
       end
 
