@@ -14,24 +14,28 @@
 
 // タブメニュー
 .menu {
-  list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
   border-bottom: 1px solid #dee2e6;
+  text-align: center;
+}
+.menu li {
+  width : calc(100% / 3)
 }
 
-
 .menu li a {
+  padding: 8px 0;
+  margin: 0 auto;
   display: inline-block;
   text-align: center;
-  padding: 8px 20px;
   color: #333;
   text-decoration: none;
   border-radius: 4px 4px 0 0;
+  width: 100%;
 }
 
-.menu li a.active {
+ul.menu li .active {
   background-color: #fff;
   border-top: solid 1px #dee2e6;
   border-right: solid 1px #dee2e6;
