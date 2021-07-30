@@ -11,7 +11,7 @@ class User::ResumesController < ApplicationController
     if @resume.save
       redirect_to mypage_path
     else
-      render :new
+      render 'new'
     end
   end
 
@@ -25,7 +25,7 @@ class User::ResumesController < ApplicationController
     if @resume.update(resume_params)
       redirect_to mypage_path
     else
-      render :edit
+      render 'edit'
     end
   end
 
