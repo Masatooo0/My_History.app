@@ -4,13 +4,11 @@
 
 .accordion-area{
     list-style: none;
-    // width: 96%;
-    // max-width: 900px;
-    // margin:0 auto;
 }
 
 .accordion-area li{
     margin-bottom: 10px;
+
 }
 
 .accordion-area section {
@@ -52,12 +50,22 @@
     background: #f3f3f3;
     margin:0 3% 3% 3%;
     padding: 3%;
-    list-style: none;
 }
 
-.box ul {
-  list-style: none;
+.box ul li{
+  border-bottom:dashed  1px  #333;
 }
+
+.box ul li a {
+  color: #333;
+  text-decoration: none;
+}
+
+.box ul li a:hover {
+  opacity: 0.5;
+  transition: opacity 0.4s;
+}
+
 .title.open .box{
   display: block;
 }
