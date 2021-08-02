@@ -25,7 +25,7 @@ set :environment, rails_env
 set :output, 'log/cron.log'
 every 1.day, at: '0:00 am' do
   begin
-    runner "Batch::DataReset.data_reset"
+    runner "Batch::NotificationCreate.notification_create"
   rescue => e
     Rails.logger.error("aborted rails runner")
     raise e
