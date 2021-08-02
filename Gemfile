@@ -76,6 +76,7 @@ gem "refile-mini_magick"
 
 gem 'cocoon'
 gem 'gon'
+gem 'whenever', require: false
 
 gem 'dotenv-rails'
 group :production do
