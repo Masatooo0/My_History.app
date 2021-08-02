@@ -1,18 +1,20 @@
 <% provide(:title, "トップ") %>
-<div class="jumbotron jumbotron-fluid d-md-none text-center card">
-  <%= image_tag 'top-img.jpg', class: 'card-img shadow rounded position-relative' %>
-  <div class="col top-title card-img-overlay mt-4 ">
-    <h2 class="d-md-none">あなたの人生を</h2>
-    <h2 class="d-md-none">可視化しよう。</h2>
-    <h4 class="d-md-none">自己分析アプリ</h4>
-    <%= link_to '今すぐはじめる', new_user_registration_path,
-        class: 'd-md-none btn btn-lg btn-gradient shadow text-white my-3 rounded-pill' %>
+<div class="col-xs col-sm">
+  <div class="jumbotron jumbotron-fluid d-md-none text-center card">
+    <%= image_tag 'top-img.jpg', class: 'card-img shadow rounded position-relative' %>
+    <div class="col top-title card-img-overlay mt-4 ">
+      <h2 class="d-md-none">あなたの人生を</h2>
+      <h2 class="d-md-none">可視化しよう。</h2>
+      <h4 class="d-md-none">自己分析アプリ</h4>
+      <%= link_to '今すぐはじめる', new_user_registration_path,
+          class: 'd-md-none btn btn-lg btn-gradient shadow text-white my-3 rounded-pill' %>
+    </div>
   </div>
 </div>
 <!--サイトイメージ-->
 <div class="container d-none d-md-block">
   <div class="row py-5">
-    <div class="col-4 col-md-6 text-center">
+    <div class="col-sm-4 col-md-6 text-center">
       <%= image_tag 'top-img.jpg', class: 'shadow rounded' %>
     </div>
     <div class="col-8 col-md-6 pt-3">
