@@ -3,5 +3,5 @@ class Resume < ApplicationRecord
   validates :user, presence: true
   validates :period, presence: true
   validates :content, presence: true, length: { maximum: 50}
-  validates :status, presence: true
+  validates :status, inclusion:{in: [true, false]}
 end
