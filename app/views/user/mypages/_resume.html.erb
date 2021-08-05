@@ -12,9 +12,9 @@
     <% resumes.each do |resume| %>
       <% if resume.status == true %>
         <tr>
-          <td scope="row" class="text-center"><%= resume.period&.strftime("%Y年%m月") %></td>
+          <td style="width: 30%" class="text-center"><%= resume.period&.strftime("%Y年%m月") %></td>
           <td><%= resume.content %></td>
-          <td colspan="2">
+          <td colspan="2" class="text-center" style="width: 10%">
             <%= link_to edit_resume_path(resume.id) do %>
               <i class="far fa-edit"></i>
             <% end %>
@@ -38,9 +38,9 @@
     <% resumes.each do |resume| %>
       <% if resume.status == false %>
         <tr>
-          <th scope="row" class="text-center"><%= resume.period&.strftime("%Y年%m月") %></th>
+          <th style="width: 30%" class="text-center"><%= resume.period&.strftime("%Y年%m月") %></th>
           <td><%= resume.content %></td>
-          <td colspan="2">
+          <td colspan="2" class="text-center" style="width: 10%">
             <%= link_to edit_resume_path(resume.id) do %>
               <i class="far fa-edit"></i>
             <% end %>
