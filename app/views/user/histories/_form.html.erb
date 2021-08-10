@@ -4,7 +4,9 @@
       <div class="col text-center text-info"><h3>自分史</h3></div>
       <div class="col form-group pt-3">
         <div class="col text-center text-muted">
+
         <%= form_with(model: history, local: true) do |f| %>
+        <%= render 'layouts/error_messages', model: f.object %>
           <div class="form-group">
             <%= f.select :period_id, Period.all.map{|period| [period.period, period.id]}, include_blank: "--時期を選択--" %>
           </div>
