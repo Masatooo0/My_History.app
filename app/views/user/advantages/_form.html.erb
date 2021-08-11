@@ -4,6 +4,7 @@
       <div class="col text-center text-info"><h3>強み</h3></div>
       <div class="col form-group pt-3">
         <%= form_with(model: advantage, local: true) do |f| %>
+          <%= render 'layouts/error_messages', model: f.object %>
           <div class="form-group">
             <%= f.label :history, "強みが生きた経験" %><br>
             <%= f.select :history_id, History.all.map{|history| [history.title, history.id]},include_blank: "--選択して下さい--" %>

@@ -4,6 +4,7 @@
       <div class="col text-center text-info"><h3>どう生きたいか</h3></div>
       <div class="col form-group pt-3">
         <%= form_with(model: dream, local: true) do |f| %>
+          <%= render 'layouts/error_messages', model: f.object %>
           <div class="form-group">
             <%= f.text_field :content,class:'form-control', placeholder: "あなたがどう生きたいか" %>
           </div>
