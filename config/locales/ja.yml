@@ -1,4 +1,40 @@
 ja:
+  activerecord:
+    attributes:
+      user:
+        first_name: 名
+        last_name: 姓
+        birth_day: 生年月日
+        email: メールアドレス
+        
+      history:
+        title: タイトル
+        event: 出来事
+        motivation: モチベーション度
+        summarize: まとめ
+        period: 時期
+      history/reasons:
+        reason: 理由
+        
+      dream:
+        content: どう生きたいか
+      
+      advantage:
+        advantage: 強み
+        
+      resume:
+        period: 年月
+        content: 経歴
+      
+      mission:
+        content: 目標
+        deadline: 締切
+      
+      contact:
+        name: お名前
+        email: メールアドレス
+        message: お問い合わせ内容
+
   date:
     order:
       - :year
