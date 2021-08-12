@@ -11,11 +11,15 @@
       <% advantages.each do |advantage| %>
         <tr>
           <td><%= advantage.advantage %></td>
-          <td>
-            <%= link_to history_path(advantage.history) do %>
-             <%= advantage.history.title %>
-            <% end %>
-          </td>
+          <% if advantage.history_id == nil %>
+            <td>経験が登録されていません</td>
+          <% else %>
+            <td>
+              <%= link_to history_path(advantage.history) do %>
+               <%= advantage.history.title %>
+              <% end %>
+            </td>
+          <% end %>
           <td>
             <%= link_to edit_advantage_path(advantage.id) do %>
               <i class="far fa-edit"></i>
