@@ -1,67 +1,71 @@
-<% if @resumes.present? %>
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th scope="col"></th>
-      <th colspan="2"  class="text-center">学歴</th>
-      <th></th>
-    </tr>
-  </thead>
-  <!--学歴テーブル-->
-  <tbody>
+<!--Resumeが存在するとき-->
+<% if resumes.present? %>
+  <table class="table table-bordered">
+    <!--学歴テーブル-->
     <% resumes.each do |resume| %>
-      <% if resume.status == true %>
-        <tr>
-          <td style="width: 30%" class="text-center"><%= resume.period&.strftime("%Y年%m月") %></td>
-          <td><%= resume.content %></td>
-          <td colspan="2" class="text-center" style="width: 10%">
-            <%= link_to edit_resume_path(resume.id) do %>
-              <i class="far fa-edit"></i>
-            <% end %>
-            <%= link_to resume_path(resume.id), method: :delete do%>
-              <i class="far fa-trash-alt"></i>
-            <% end %>
-          </td>
-        </tr>
+        <% if resume.status == true %>
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th colspan="2"  class="text-center">学歴</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="width: 30%" class="text-center"><%= resume.period&.strftime("%Y年%m月") %></td>
+              <td><%= resume.content %></td>
+              <td colspan="2" class="text-center" style="width: 10%">
+                <%= link_to edit_resume_path(resume.id) do %>
+                  <i class="far fa-edit"></i>
+                <% end %>
+                <%= link_to resume_path(resume.id), method: :delete do%>
+                  <i class="far fa-trash-alt"></i>
+                <% end %>
+              </td>
+            </tr>
+          </tbody>
+        <% end %>
       <% end %>
-    <% end %>
-  </tbody>
-  <thead>
-    <tr>
-      <th scope="col"></th>
-      <th colspan="2" class="text-center">職歴</th>
-      <th></th>
-    </tr>
-  </thead>
-  <!--職歴テーブル-->
-  <tbody>
-    <% resumes.each do |resume| %>
-      <% if resume.status == false %>
-        <tr>
-          <th style="width: 30%" class="text-center"><%= resume.period&.strftime("%Y年%m月") %></th>
-          <td><%= resume.content %></td>
-          <td colspan="2" class="text-center" style="width: 10%">
-            <%= link_to edit_resume_path(resume.id) do %>
-              <i class="far fa-edit"></i>
-            <% end %>
-            <%= link_to resume_path(resume.id), method: :delete do%>
-              <i class="far fa-trash-alt"></i>
-            <% end %>
-          </td>
-        </tr>
+  
+    <!--職歴テーブル-->
+      <% resumes.each do |resume| %>
+        <% if resume.status == false %>
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th colspan="2" class="text-center">職歴</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th style="width: 30%" class="text-center"><%= resume.period&.strftime("%Y年%m月") %></th>
+              <td><%= resume.content %></td>
+              <td colspan="2" class="text-center" style="width: 10%">
+                <%= link_to edit_resume_path(resume.id) do %>
+                  <i class="far fa-edit"></i>
+                <% end %>
+                <%= link_to resume_path(resume.id), method: :delete do %>
+                  <i class="far fa-trash-alt"></i>
+                <% end %>
+              </td>
+            </tr>
+          </tbody>
+        <% end %>
       <% end %>
+  </table>
+  <!--追加ボタン-->
+  <div class="text-right pr-5">
+    <%= link_to new_resume_path do %>
+      <i class="fa-3x far fa-plus-square"></i>
     <% end %>
-  </tbody>
-</table>
-<div class="text-right pr-5">
-  <%= link_to new_resume_path do %>
-    <i class="fa-3x far fa-plus-square"></i>
-  <% end %>
-</div>
+  </div>
+<!--投稿がない場合-->
 <% else %>
-<div class="container">
-    <p>まだ学歴、職歴が登録されていません</p>
-    <p>追加してみましょう</p>
-    <%= link_to "追加", new_resume_path, class:"btn btn-primary" %>
-</div>
+  <div class="container">
+      <p>まだ学歴、職歴が登録されていません</p>
+      <p>追加してみましょう</p>
+      <%= link_to "追加", new_resume_path, class:"btn btn-primary" %>
+  </div>
 <% end %>
