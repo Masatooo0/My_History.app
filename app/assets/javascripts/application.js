@@ -91,7 +91,7 @@ setInterval('showCountdown()',1000);
 
 $(document).on('turbolinks:load', function() {
 　$('.title').on('click', function() {//タイトル要素をクリックしたら
-    var findElm = $(this).next(".box");//直後のアコーディオンを行うエリアを取得し
+    let findElm = $(this).next(".box");//直後のアコーディオンを行うエリアを取得し
     $(findElm).slideToggle();
     if($(this).hasClass('open')){//タイトル要素にクラス名closeがあれば
       $(this).removeClass('open');//クラス名を除去し
@@ -99,4 +99,13 @@ $(document).on('turbolinks:load', function() {
       $(this).addClass('open');//クラス名closeを付与
     }
   });
+});
+
+
+$(document).on('turbolinks:load', function() {
+  $('#resumestatus').on('change', function() {
+  　　let resumestatusId = $('#resu_category').val();
+  });
+  
+  
 });
