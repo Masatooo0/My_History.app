@@ -1,66 +1,74 @@
-<div class="container">
-  <div class="mission-chart-container" style="position: relative; height:40vh; width:40vw">
-    <canvas id="MissionChart"></canvas>
-  </div>
-  <script>
-    var ctx = document.getElementById("MissionChart");
-    var missionChart = new Chart(ctx, {
-      type: 'pie',
-      data: {
-        labels: ["未完了","完了済"],
-        datasets:
-        [
-          {
-          backgroundColor: [
-            "#7fbfff",
-            "#ff7f7f",
-          ],
-          data: [gon.completed,gon.allmissions-gon.completed]
+<% if @missions.present? %>
+  <div class="container">
+    <div class="mission-chart-container" style="position: relative; height:40vh; width:40vw">
+      <canvas id="MissionChart"></canvas>
+    </div>
+    <script>
+      var ctx = document.getElementById("MissionChart");
+      var missionChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+          labels: ["未完了","完了済"],
+          datasets:
+          [
+            {
+            backgroundColor: [
+              "#7fbfff",
+              "#ff7f7f",
+            ],
+            data: [gon.completed,gon.allmissions-gon.completed]
+            }
+          ]
+        },
+        options: {
+          maintainAspectRatio: false,
+          title: {
+            display: true,
+            text: 'タスク進捗'
           }
-        ]
-      },
-      options: {
-        maintainAspectRatio: false,
-        title: {
-          display: true,
-          text: 'タスク進捗'
         }
-      }
-    });
-  </script>
+      });
+    </script>
 
-  <div class="row mission-container pt-8">
-    <div class="col-md-6">
-      <h2>未完了タスク</h2>
-      <% @missions.each do |mission| %>
-        <% if mission.status == false %>
-          <div class="mission-box">
-            <%= link_to mission_path(mission) do %>
-              <%= mission.content %>
-            <% end %>
-            <%= l mission.deadline, format: :short %>
-          </div>
+    <div class="row mission-container pt-8">
+      <div class="col-md-6">
+        <h2>未完了タスク</h2>
+        <% @missions.each do |mission| %>
+          <% if mission.status == false %>
+            <div class="mission-box">
+              <%= link_to mission_path(mission) do %>
+                <%= mission.content %>
+              <% end %>
+              <%= l mission.deadline, format: :short %>
+            </div>
+          <% end %>
         <% end %>
-      <% end %>
-      <div class="text-right mb-3">
-        <%= link_to new_mission_path do %>
-          <i class="fa-3x far fa-plus-square"></i>
+        <div class="text-right mb-3">
+          <%= link_to new_mission_path do %>
+            <i class="fa-3x far fa-plus-square"></i>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <h2>完了済みタスク</h2>
+        <% @missions.each do |mission| %>
+          <% if mission.status == true %>
+            <div class="mission-box">
+              <%= link_to mission_path(mission) do %>
+                <%= mission.content %>
+              <% end %>
+              <%= l mission.deadline, format: :short %>
+            </div>
+          <% end %>
         <% end %>
       </div>
     </div>
-    <div class="col-md-6">
-      <h2>完了済みタスク</h2>
-      <% @missions.each do |mission| %>
-        <% if mission.status == true %>
-          <div class="mission-box">
-            <%= link_to mission_path(mission) do %>
-              <%= mission.content %>
-            <% end %>
-            <%= l mission.deadline, format: :short %>
-          </div>
-        <% end %>
-      <% end %>
-    </div>
   </div>
-</div>
+<% else %>
+  <div class="container">
+      <p>まだ目標が登録されていません</p>
+      <p>追加してみましょう</p>
+      <%= link_to "追加", new_mission_path, class:"btn btn-primary" %>
+  </div>
+<% end %>
 
