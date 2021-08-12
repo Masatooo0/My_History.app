@@ -2,58 +2,62 @@
 <% if resumes.present? %>
   <table class="table table-bordered">
     <!--学歴テーブル-->
+    <% if resumes.exists?(status: true) %>
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <th colspan="2"  class="text-center">学歴</th>
+          <th></th>
+        </tr>
+      </thead>
+    <% end %>
     <% resumes.each do |resume| %>
-        <% if resume.status == true %>
-          <thead>
-            <tr>
-              <th scope="col"></th>
-              <th colspan="2"  class="text-center">学歴</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td style="width: 30%" class="text-center"><%= resume.period&.strftime("%Y年%m月") %></td>
-              <td><%= resume.content %></td>
-              <td colspan="2" class="text-center" style="width: 10%">
-                <%= link_to edit_resume_path(resume.id) do %>
-                  <i class="far fa-edit"></i>
-                <% end %>
-                <%= link_to resume_path(resume.id), method: :delete do%>
-                  <i class="far fa-trash-alt"></i>
-                <% end %>
-              </td>
-            </tr>
-          </tbody>
-        <% end %>
+      <% if resume.status == true %>
+        <tbody>
+          <tr>
+            <td style="width: 30%" class="text-center"><%= resume.period&.strftime("%Y年%m月") %></td>
+            <td><%= resume.content %></td>
+            <td colspan="2" class="text-center" style="width: 10%">
+              <%= link_to edit_resume_path(resume.id) do %>
+                <i class="far fa-edit"></i>
+              <% end %>
+              <%= link_to resume_path(resume.id), method: :delete do%>
+                <i class="far fa-trash-alt"></i>
+              <% end %>
+            </td>
+          </tr>
+        </tbody>
       <% end %>
-  
+    <% end %>
+
     <!--職歴テーブル-->
-      <% resumes.each do |resume| %>
-        <% if resume.status == false %>
-          <thead>
-            <tr>
-              <th scope="col"></th>
-              <th colspan="2" class="text-center">職歴</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th style="width: 30%" class="text-center"><%= resume.period&.strftime("%Y年%m月") %></th>
-              <td><%= resume.content %></td>
-              <td colspan="2" class="text-center" style="width: 10%">
-                <%= link_to edit_resume_path(resume.id) do %>
-                  <i class="far fa-edit"></i>
-                <% end %>
-                <%= link_to resume_path(resume.id), method: :delete do %>
-                  <i class="far fa-trash-alt"></i>
-                <% end %>
-              </td>
-            </tr>
-          </tbody>
-        <% end %>
+    <% if resumes.exists?(status: false) %>
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <th colspan="2"  class="text-center">職歴</th>
+          <th></th>
+        </tr>
+      </thead>
+    <% end %>
+    <% resumes.each do |resume| %>
+      <% if resume.status == false %>
+        <tbody>
+          <tr>
+            <th style="width: 30%" class="text-center"><%= resume.period&.strftime("%Y年%m月") %></th>
+            <td><%= resume.content %></td>
+            <td colspan="2" class="text-center" style="width: 10%">
+              <%= link_to edit_resume_path(resume.id) do %>
+                <i class="far fa-edit"></i>
+              <% end %>
+              <%= link_to resume_path(resume.id), method: :delete do %>
+                <i class="far fa-trash-alt"></i>
+              <% end %>
+            </td>
+          </tr>
+        </tbody>
       <% end %>
+    <% end %>
   </table>
   <!--追加ボタン-->
   <div class="text-right pr-5">
