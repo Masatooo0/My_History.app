@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
     mypage_path
   end
 
+  # フラッシュメッセージのキーを許可
   add_flash_types :success, :info, :warning, :danger
 
   protected

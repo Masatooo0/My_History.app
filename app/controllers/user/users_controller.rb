@@ -1,6 +1,6 @@
 class User::UsersController < ApplicationController
   before_action :authenticate_user!
-  
+
   def show
     @user = User.find(params[:id])
   end
@@ -10,6 +10,7 @@ class User::UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
+      flash[:success] = '更新しました'
       redirect_to mypage_path
     else
       render 'edit'

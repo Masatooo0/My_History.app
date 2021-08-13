@@ -9,6 +9,7 @@ class User::ResumesController < ApplicationController
     @resume = Resume.new(resume_params)
     @resume.user_id = current_user.id
     if @resume.save
+      flash[:success] = '保存しました'
       redirect_to mypage_path
     else
       render 'new'
@@ -23,6 +24,7 @@ class User::ResumesController < ApplicationController
     @resume = Resume.find(params[:id])
     @resume.user_id = current_user.id
     if @resume.update(resume_params)
+      flash[:success] = '更新しました'
       redirect_to mypage_path
     else
       render 'edit'

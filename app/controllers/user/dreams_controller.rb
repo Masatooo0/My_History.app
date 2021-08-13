@@ -8,6 +8,7 @@ class User::DreamsController < ApplicationController
     @dream = Dream.new(dream_params)
     @dream.user_id = current_user.id
     if @dream.save
+      flash[:success] = '保存しました'
       redirect_to mypage_path
     else
       render 'new'
@@ -22,6 +23,7 @@ class User::DreamsController < ApplicationController
     @dream = Dream.find(params[:id])
     @dream.user_id = current_user.id
     if @dream.update(dream_params)
+      flash[:success] = '更新しました'
       redirect_to mypage_path
     else
       render 'edit'
