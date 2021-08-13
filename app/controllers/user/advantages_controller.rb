@@ -9,6 +9,7 @@ class User::AdvantagesController < ApplicationController
     @advantage = Advantage.new(advantage_params)
     @advantage.user_id = current_user.id
     if @advantage.save
+      flash[:success] = '保存しました'
       redirect_to mypage_path
     else
       render 'new'

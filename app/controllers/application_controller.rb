@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
     mypage_path
   end
 
-
+  add_flash_types :success, :info, :warning, :danger
 
   protected
 # ======devise userのストロングパラメータ=======
