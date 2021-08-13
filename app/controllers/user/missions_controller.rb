@@ -21,6 +21,7 @@ class User::MissionsController < ApplicationController
     @mission.user_id = current_user.id
     @mission.save
     if @mission.save
+      flash[:success] = '保存しました'
       redirect_to mission_path(@mission.id)
     else
       render 'new'
@@ -35,6 +36,7 @@ class User::MissionsController < ApplicationController
     @mission = Mission.find(params[:id])
     @mission.user_id = current_user.id
     if @mission.update(mission_params)
+      flash[:success] = '更新しました'
       redirect_to missions_path
     else
       render 'edit'
