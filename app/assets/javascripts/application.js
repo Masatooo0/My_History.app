@@ -100,12 +100,3 @@ $(document).on('turbolinks:load', function() {
     }
   });
 });
-
-
-$(document).on('turbolinks:load', function() {
-  $('#resumestatus').on('change', function() {
-  　　let resumestatusId = $('#resu_category').val();
-  });
-  
-  
-});

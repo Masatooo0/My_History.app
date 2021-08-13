@@ -18,6 +18,7 @@ class User::HistoriesController < ApplicationController
     @history = History.new(history_params)
     @history.user_id = current_user.id
     if @history.save
+      flash[:success] = '保存しました'
       redirect_to history_path(@history.id)
     else
       render 'new'
@@ -32,6 +33,7 @@ class User::HistoriesController < ApplicationController
     @history = History.find(params[:id])
     @history.user_id = current_user.id
     if @history.update(history_params)
+      flash[:success] = '更新しました'
       redirect_to history_path(@history.id)
     else
       render 'edit'
