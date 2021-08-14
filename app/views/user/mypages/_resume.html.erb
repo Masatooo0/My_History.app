@@ -4,9 +4,8 @@
     <!--学歴テーブル-->
     <% if resumes.exists?(status: true) %>
       <thead>
-        <tr>
-          <th style="width: 30%"></th>
-          <th style="width: 70%" class="text-center">学歴</th>
+        <tr class="table-secondary">
+          <th colspan="2" style="width: 100%" class="text-center">学歴</th>
         </tr>
       </thead>
     <% end %>
@@ -36,9 +35,8 @@
     <!--職歴テーブル-->
     <% if resumes.exists?(status: false) %>
       <thead>
-        <tr>
-          <th style="width: 30%"></th>
-          <th style="width: 70%" class="text-center">職歴</th>
+        <tr class="table-secondary">
+          <th colspan="2" style="width: 100%" class="text-center">職歴</th>
         </tr>
       </thead>
     <% end %>
