@@ -1,16 +1,16 @@
-<div class="container" style="max-width: 900px;">
+<div class="container mypage" style="max-width: 900px;">
   <div class="row py-5">
-    <div class="col-md-6 text-center">
+    <div class="col text-center">
       <%= attachment_image_tag current_user, :profile_image, size: "160x160", format: 'jpeg', fallback: "user-no-image.png", class: 'customer-image shadow rounded' %>
     </div>
-    <div class="col-md-6 d-flex align-items-center">
+    <div class="col d-flex align-items-center">
       <ul class="profile-list">
         <li>
           <h3 class="d-inline-block">
             <%= current_user.last_name %>
             <%= current_user.first_name %>
           </h3>
-          <%= link_to ' ',  edit_user_path(current_user), class: 'ml-2 fas fa-cog fa-lg text-dark ' %>
+          <%= link_to ' ',  edit_user_path(current_user), class: 'ml-2 fas fa-cog text-dark' %>
         </li>
         <li>
           <h4><%= current_user.birth_day %></h4>
@@ -22,6 +22,7 @@
     </div>
   </div>
 <!--====タブメニュー======-->
+<div class="tab-menu">
 <div class="container">
   <ul class="menu">
     <li><a href="#" class="active" data-id="dream">人生の目的</a></li>
@@ -40,4 +41,5 @@
   <section class="content" id="advantage">
     <%= render 'advantage', advantages: @advantages %>
   </section>
+</div>
 </div>
