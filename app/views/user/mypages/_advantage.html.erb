@@ -24,7 +24,7 @@
             <%= link_to edit_advantage_path(advantage.id) do %>
               <i class="far fa-edit"></i>
             <% end %>
-            <%= link_to advantage_path(advantage.id), method: :delete do %>
+            <%= link_to advantage_path(advantage.id), method: :delete, data: {confirm: "本当に削除しますか？"} do %>
               <i class="far fa-trash-alt"></i>
             <% end %>
           </td>

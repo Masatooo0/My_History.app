@@ -11,7 +11,7 @@
           <i class="far fa-edit"></i>
         <% end %>
         <!--削除ボタン-->
-        <%= link_to history_path(@history.id), method: :delete do %>
+        <%= link_to history_path(@history.id), method: :delete, data: {confirm: "本当に削除しますか？"} do %>
           <i class="far fa-trash-alt"></i>
         <% end %>
       </h2><br>

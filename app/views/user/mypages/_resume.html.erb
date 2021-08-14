@@ -21,7 +21,7 @@
               <%= link_to edit_resume_path(resume.id) do %>
                 <i class="far fa-edit"></i>
               <% end %>
-              <%= link_to resume_path(resume.id), method: :delete do%>
+              <%= link_to resume_path(resume.id), method: :delete, data: {confirm: "本当に削除しますか？"} do%>
                 <i class="far fa-trash-alt"></i>
               <% end %>
             </td>
@@ -50,7 +50,7 @@
               <%= link_to edit_resume_path(resume.id) do %>
                 <i class="far fa-edit"></i>
               <% end %>
-              <%= link_to resume_path(resume.id), method: :delete do %>
+              <%= link_to resume_path(resume.id), method: :delete, data: {confirm: "本当に削除しますか？"} do %>
                 <i class="far fa-trash-alt"></i>
               <% end %>
             </td>
