@@ -2,34 +2,41 @@
   <table class="table table-bordered">
     <thead>
       <tr>
-        <th scope="col" class="text-center">自分の強み</th>
-        <th scope="col" class="text-center">生きた経験</th>
-        <th></th>
+        <th style="width: 40%" class="text-center">自分の強み</th>
+        <th style="width: 60%" class="text-center">生きた経験</th>
       </tr>
     </thead>
     <tbody>
       <% advantages.each do |advantage| %>
         <tr>
-          <td><%= advantage.advantage %></td>
-          <% if advantage.history_id == nil %>
-            <td>経験が登録されていません</td>
-          <% else %>
-            <td>
-              <%= link_to history_path(advantage.history) do %>
-               <%= advantage.history.title %>
-              <% end %>
-            </td>
-          <% end %>
-          <td>
-            <%= link_to edit_advantage_path(advantage.id) do %>
-              <i class="far fa-edit"></i>
-            <% end %>
-            <%= link_to advantage_path(advantage.id), method: :delete do %>
-              <i class="far fa-trash-alt"></i>
-            <% end %>
+          <td style="width: 40%" class="text-center">
+            <%= advantage.advantage %>
           </td>
-        </tr>
-      <% end %>
+
+          <td style="width: 60%">
+            <div class="advantage-content">
+              <!--もし経験が登録されていない場合-->
+              <% if advantage.history_id == nil %>
+                経験が登録されていません
+              <!--登録されている場合-->
+              <% else %>
+                <%= link_to history_path(advantage.history) do %>
+                  <%= advantage.history.title %>
+                <% end %>
+              <% end %>
+              <!--編集、削除ボタン-->
+              <div class="advantage-btn">
+                <%= link_to edit_advantage_path(advantage.id) do %>
+                  <i class="far fa-edit"></i>
+                <% end %>
+                <%= link_to advantage_path(advantage.id), method: :delete, data: {confirm: "本当に削除しますか？"} do %>
+                  <i class="far fa-trash-alt"></i>
+                <% end %>
+              </div>
+            </div>
+          </td>
+        <% end %>
+      </tr>
     </tbody>
   </table>
   <div class="text-right pr-5">

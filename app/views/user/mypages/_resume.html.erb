@@ -4,10 +4,8 @@
     <!--学歴テーブル-->
     <% if resumes.exists?(status: true) %>
       <thead>
-        <tr>
-          <th scope="col"></th>
-          <th colspan="2"  class="text-center">学歴</th>
-          <th></th>
+        <tr class="table-secondary">
+          <th colspan="2" style="width: 100%" class="text-center">学歴</th>
         </tr>
       </thead>
     <% end %>
@@ -16,14 +14,18 @@
         <tbody>
           <tr>
             <td style="width: 30%" class="text-center"><%= resume.period&.strftime("%Y年%m月") %></td>
-            <td><%= resume.content %></td>
-            <td colspan="2" class="text-center" style="width: 10%">
-              <%= link_to edit_resume_path(resume.id) do %>
-                <i class="far fa-edit"></i>
-              <% end %>
-              <%= link_to resume_path(resume.id), method: :delete do%>
-                <i class="far fa-trash-alt"></i>
-              <% end %>
+            <td style="width: 70%">
+              <div class="resume-content">
+                <%= resume.content %>
+                <div class="resume-btn">
+                  <%= link_to edit_resume_path(resume.id) do %>
+                    <i class="far fa-edit"></i>
+                  <% end %>
+                  <%= link_to resume_path(resume.id), method: :delete, data: {confirm: "本当に削除しますか？"} do%>
+                    <i class="far fa-trash-alt"></i>
+                  <% end %>
+                </div>
+              </div>
             </td>
           </tr>
         </tbody>
@@ -33,10 +35,8 @@
     <!--職歴テーブル-->
     <% if resumes.exists?(status: false) %>
       <thead>
-        <tr>
-          <th scope="col"></th>
-          <th colspan="2"  class="text-center">職歴</th>
-          <th></th>
+        <tr class="table-secondary">
+          <th colspan="2" style="width: 100%" class="text-center">職歴</th>
         </tr>
       </thead>
     <% end %>
@@ -44,15 +44,19 @@
       <% if resume.status == false %>
         <tbody>
           <tr>
-            <th style="width: 30%" class="text-center"><%= resume.period&.strftime("%Y年%m月") %></th>
-            <td><%= resume.content %></td>
-            <td colspan="2" class="text-center" style="width: 10%">
-              <%= link_to edit_resume_path(resume.id) do %>
-                <i class="far fa-edit"></i>
-              <% end %>
-              <%= link_to resume_path(resume.id), method: :delete do %>
-                <i class="far fa-trash-alt"></i>
-              <% end %>
+            <td style="width: 30%" class="text-center"><%= resume.period&.strftime("%Y年%m月") %></td>
+            <td style="width: 70%">
+              <div class="resume-content">
+                <%= resume.content %>
+                <div class="resume-btn">
+                  <%= link_to edit_resume_path(resume.id) do %>
+                    <i class="far fa-edit text-right"></i>
+                  <% end %>
+                  <%= link_to resume_path(resume.id), method: :delete, data: {confirm: "本当に削除しますか？"} do %>
+                    <i class="far fa-trash-alt text-right"></i>
+                  <% end %>
+                </div>
+              </div>
             </td>
           </tr>
         </tbody>

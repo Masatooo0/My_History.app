@@ -57,3 +57,17 @@ ul.menu li .active {
   display: none;
 }
 
+
+@media screen and (max-width:480px) {
+    /*　画面サイズが480pxからはここを読み込む　*/
+  .mypage h3, .mypage h4 {
+    font-size: 0.9em;
+  }
+  .tab-menu th, .tab-menu td {
+    font-size: 0.8em;
+  }
+  .resume-btn {
+    font-size: 0.8em;
+  }
+}
+
