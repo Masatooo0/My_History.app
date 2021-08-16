@@ -3,6 +3,7 @@ class User::AdvantagesController < ApplicationController
 
   def new
     @advantage = Advantage.new
+    @history = History.where(user_id: current_user.id).includes(:user)
   end
 
   def create
