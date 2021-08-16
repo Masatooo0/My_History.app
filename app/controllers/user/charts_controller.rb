@@ -5,7 +5,7 @@ class User::ChartsController < ApplicationController
     gon.period = @period.order(:id).pluck(:period, :title)
 
      #グラフY軸データ
-    @history = History.where(user_id: current_user.id).includes(:user)
-    gon.motivation = @history.order(:period_id).pluck(:motivation).map(&:to_i)
+
+    gon.motivation = @period.order(:id).pluck(:motivation)
   end
 end
