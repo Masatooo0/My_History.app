@@ -52,7 +52,6 @@ class User::MissionsController < ApplicationController
     end
   end
 
-  gon.mission = current_page?(mission_path)
 
   private
 
