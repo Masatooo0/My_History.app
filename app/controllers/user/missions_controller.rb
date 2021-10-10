@@ -43,6 +43,7 @@ class User::MissionsController < ApplicationController
     end
   end
 
+
   def destroy
     mission = Mission.find(params[:id])
     if mission.destroy
@@ -52,7 +53,6 @@ class User::MissionsController < ApplicationController
     end
   end
 
-  gon.mission = current_page?(mission_path)
 
   private
 
