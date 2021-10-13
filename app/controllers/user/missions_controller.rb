@@ -43,6 +43,7 @@ class User::MissionsController < ApplicationController
     end
   end
 
+
   def destroy
     mission = Mission.find(params[:id])
     if mission.destroy
@@ -51,6 +52,7 @@ class User::MissionsController < ApplicationController
       redirect_to request.referer
     end
   end
+
 
   private
 
